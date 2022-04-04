@@ -1,91 +1,244 @@
-@php
-    $count=0;
-@endphp
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title></title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="{{asset('public')}}/frontend/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="{{asset('public')}}/frontend/css/style.css">
+	<!-- start header -->
+  <header class="header-v4">
+		<!-- Header desktop -->
+		<div class="container-menu-desktop">
+			<!-- Topbar -->
+			<div class="top-bar">
+				<div class="content-topbar flex-sb-m h-full container">
+					<div class="left-top-bar">
+						<div class="left-top-bar">
+							<font size="3px" color="#fff">
+		                        01782283171 &nbsp;&nbsp;&nbsp;
+		                        mhakash5000@gmail.com
+		                    </font>
+						</div>
+					</div>
 
-    <body>
+					<div class="right-top-bar flex-w h-full">
+						<ul class="social">
+	                        <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
+	                        <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
+	                        <li class="google-plus"><a href="#"><i class="fa fa-google-plus"></i></a></li>
+	                        <li class="youtube"><a href="#"><i class="fa fa-youtube-play"></i></a></li>
+	                        <li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>
+	                    </ul>
+					</div>
+				</div>
+			</div>
 
-        <!-- header section start -->
-        <section class="header">
-                <!-- container start -->
-           <div class="container">
-                 <nav class="navbar navbar-expand-lg navbar-light bg-success">
-                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-                       <span class="navbar-toggler-icon"></span>
-                     </button>
-                     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-                         <a href="{{url('/')}} " class="navbar-brand"><img src="{{asset('upload/user_images/'.$logo->image)}}" style=" height: 35px; width: 47px;" alt=""></a>
-                       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                         <li class="nav-item active">
-                           <a class="nav-link" href="{{url('/')}}">Home <span class="sr-only">(current)</span></a>
-                         </li>
-                         <li class="nav-item dropdown">
-                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                               About
-                             </a>
-                             <div class="dropdown-menu "  style="background-color:chartreuse;"  aria-labelledby="navbarDropdownMenuLink">
-                               <a class="dropdown-item" href="{{route('aboutUs')}} ">About Us</a>
-                               <a class="dropdown-item" href="{{route('mission')}} ">Mission</a>
-                               <a class="dropdown-item" href="{{route('vision')}} ">Vision</a>
-                             </div>
-                           </li>
-                           <li class="nav-item active">
-                             <a class="nav-link" href="{{route('contactUs')}}">Contact Us <span class="sr-only">(current)</span></a>
-                           </li>
-                         <li class="nav-item">
-                           <a class="nav-link" href="{{route('login')}} ">Login</a>
-                         </li>
-                       </ul>
-                       <form class="form-inline my-2 my-lg-0">
-                         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                         <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
-                       </form>
-                     </div>
-                   </nav>
-             </div>
-            <!-- container end -->
-        </section>
-      <!-- header section end -->
+			<div class="wrap-menu-desktop how-shadow1">
+				<nav class="limiter-menu-desktop container">
+					
+					<!-- Logo desktop -->		
+					<a href="index.html" class="logo">
+						<img src="images/logo/logo.png" alt="IMG-LOGO">
+					</a>
 
-       <!-- Slider Section start -->
-     <section class="slider">
-        <div class="container">
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-             <ol class="carousel-indicators">
-                 @foreach($sliders as $key=> $slider)
-               <li data-target="#carouselExampleIndicators" data-slide-to="{{$key}}" class="@if($count==0){ active } @endif"></li>
-                @endforeach
-             </ol>
-             <div class="carousel-inner" role="listbox">
-                @foreach ($sliders as $slider)
-               <div class="carousel-item @if($count==0){ active } @endif " style="background-image: url('{{asset('upload/user_images/'.$slider->image)}}">
-                 <div class="carousel-caption d-none d-md-block">
-                   <h2 class="display-4">{{$slider->sort_title}}</h2>
-                   <p class="lead" >{{$slider->long_title}}</p>
-                 </div>
-             </div>
-               @php
-                   $count++
-               @endphp
-               @endforeach
-             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                   <span class="sr-only">Previous</span>
-                 </a>
-             <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                 <span class="sr-only">Next</span>
-               </a>
-            </div>
-           </div>
-         <!-- container end -->
-          </section>
-         <!-- slider section end -->
+					<!-- Menu desktop -->
+					<div class="menu-desktop">
+						<ul class="main-menu">
+	                        <li class="active-menu">
+	                            <a href="index.html">HOME</a>
+	                        </li>
+	                        <li class="active-menu">
+	                            <a href="#">SHOPS</a>
+	                            <ul class="sub-menu">
+	                                <li><a href="">Products</a></li>
+	                                <li><a href="shoping-cart.html">Checkout</a></li>
+	                                <li><a href="">Cart</a></li>
+	                            </ul>
+	                        </li>
+	                        <li>
+	                            <a href="">ABOUT US</a>
+	                        </li>
+	                        <li>
+	                            <a href="contact.html">CONTACT US</a>
+	                        </li>
+
+	                        <li><a href="">LOGIN</a></li>
+	                    </ul>
+					</div>	
+
+					<!-- Icon header -->
+					<div class="wrap-icon-header flex-w flex-r-m">
+						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="2">
+							<i class="zmdi zmdi-shopping-cart"></i>
+						</div>
+					</div>
+				</nav>
+			</div>	
+		</div>
+
+		<!-- Header Mobile -->
+		<div class="wrap-header-mobile">
+			<!-- Logo moblie -->		
+			<div class="logo-mobile">
+				<a href="index.html"><img src="images/logo/logo.png" alt="IMG-LOGO"></a>
+			</div>
+
+			<!-- Icon header -->
+			<div class="wrap-icon-header flex-w flex-r-m m-r-15">
+				<div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti js-show-cart" data-notify="2">
+					<i class="zmdi zmdi-shopping-cart"></i>
+				</div>
+			</div>
+
+			<!-- Button show menu -->
+			<div class="btn-show-menu-mobile hamburger hamburger--squeeze">
+				<span class="hamburger-box">
+					<span class="hamburger-inner"></span>
+				</span>
+			</div>
+		</div>
+
+		<!-- Menu Mobile -->
+		<div class="menu-mobile">
+			<ul class="topbar-mobile">
+				<li>
+					<div class="left-top-bar">
+						<font size="3px" color="#fff">
+	                        01928511049 &nbsp;&nbsp;&nbsp;
+	                        asadullahkpi@gmail.com
+	                    </font>
+					</div>
+				</li>
+
+				<li>
+					<div class="right-top-bar flex-w h-full">
+						<ul class="social">
+	                        <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
+	                        <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
+	                        <li class="google-plus"><a href="#"><i class="fa fa-google-plus"></i></a></li>
+	                        <li class="youtube"><a href="#"><i class="fa fa-youtube-play"></i></a></li>
+	                        <li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>
+	                    </ul>
+					</div>
+				</li>
+			</ul>
+
+			<ul class="main-menu-m">
+				<li><a href="index.html">Home</a></li>
+				<li>
+					<a href="">SHOPS</a>
+					<ul class="sub-menu-m">
+						<li><a href="">Products</a></li>
+                        <li><a href="">Checkout</a></li>
+                        <li><a href="shoping-cart.html">Cart</a></li>
+					</ul>
+					<span class="arrow-main-menu-m">
+						<i class="fa fa-angle-right" aria-hidden="true"></i>
+					</span>
+				</li>
+				<li>
+                    <a href="">ABOUT US</a>
+                </li>
+                <li>
+                    <a href="contact.html">CONTACT US</a>
+                </li>
+                <li><a href="">LOGIN</a></li>
+			</ul>
+		</div>
+
+		<!-- Modal Search -->
+		<div class="modal-search-header flex-c-m trans-04 js-hide-modal-search">
+			<div class="container-search-header">
+				<button class="flex-c-m btn-hide-modal-search trans-04 js-hide-modal-search">
+					<img src="images/icons/icon-close2.png" alt="CLOSE">
+				</button>
+
+				<form class="wrap-search-header flex-w p-l-15">
+					<button class="flex-c-m trans-04">
+						<i class="zmdi zmdi-search"></i>
+					</button>
+					<input class="plh3" type="text" name="search" placeholder="Search...">
+				</form>
+			</div>
+		</div>
+	</header>
+  <!-- end header -->
+
+  <!-- start cart -->
+	<div class="wrap-header-cart js-panel-cart">
+		<div class="s-full js-hide-cart"></div>
+
+		<div class="header-cart flex-col-l p-l-65 p-r-25">
+			<div class="header-cart-title flex-w flex-sb-m p-b-8">
+				<span class="mtext-103 cl2">
+					Your Cart
+				</span>
+
+				<div class="fs-35 lh-10 cl2 p-lr-5 pointer hov-cl1 trans-04 js-hide-cart">
+					<i class="zmdi zmdi-close"></i>
+				</div>
+			</div>
+			
+			<div class="header-cart-content flex-w js-pscroll">
+				<ul class="header-cart-wrapitem w-full">
+					<li class="header-cart-item flex-w flex-t m-b-12">
+						<div class="header-cart-item-img">
+							<img src="images/item-cart-01.jpg" alt="IMG">
+						</div>
+
+						<div class="header-cart-item-txt p-t-8">
+							<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
+								White Shirt Pleat
+							</a>
+
+							<span class="header-cart-item-info">
+								1 x $19.00
+							</span>
+						</div>
+					</li>
+
+					<li class="header-cart-item flex-w flex-t m-b-12">
+						<div class="header-cart-item-img">
+							<img src="images/item-cart-02.jpg" alt="IMG">
+						</div>
+
+						<div class="header-cart-item-txt p-t-8">
+							<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
+								Converse All Star
+							</a>
+
+							<span class="header-cart-item-info">
+								1 x $39.00
+							</span>
+						</div>
+					</li>
+
+					<li class="header-cart-item flex-w flex-t m-b-12">
+						<div class="header-cart-item-img">
+							<img src="images/item-cart-03.jpg" alt="IMG">
+						</div>
+
+						<div class="header-cart-item-txt p-t-8">
+							<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
+								Nixon Porter Leather
+							</a>
+
+							<span class="header-cart-item-info">
+								1 x $17.00
+							</span>
+						</div>
+					</li>
+				</ul>
+				
+				<div class="w-full">
+					<div class="header-cart-total w-full p-tb-40">
+						Total: $75.00
+					</div>
+
+					<div class="header-cart-buttons flex-w w-full">
+						<a href="shoping-cart.html" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
+							View Cart
+						</a>
+
+						<a href="shoping-cart.html" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
+							Check Out
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+  <!-- end cart -->

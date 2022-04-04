@@ -7,10 +7,6 @@ use Illuminate\Http\Request;
 use App\Models\Logo;
 use App\Models\Slider;
 use App\Models\Contact;
-use App\Models\Mission;
-use App\Models\Newsevent;
-use App\Models\Vision;
-use App\Models\Service;
 use App\Models\About;
 use App\Models\ContactUs;
 use Session;
@@ -33,10 +29,6 @@ class FrontendController extends Controller
         $data['logo']=Logo::first();
         $data['sliders']=Slider::all();
         $data['contacts']=Contact::first();
-        $data['mission']=Mission::first();
-        $data['vision']=Vision::first();
-        $data['services']=Service::all();
-        $data['newsevent']=Newsevent::orderBy('id','desc')->get();
         return view('frontend.layouts.home',$data);
     }
     public function AboutUs()
@@ -69,7 +61,6 @@ class FrontendController extends Controller
       $data['logo']=Logo::first();
       $data['sliders']=Slider::all();
       $data['contacts']=Contact::first();
-      $data['newsevent']=Newsevent::find($id);
       return view('frontend.singlePages.newsevent-details',$data);
    }
 

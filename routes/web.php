@@ -88,46 +88,6 @@ Route::get('/destroy/{id}',[SliderController::class,'destroy'])->name('sliders.d
 });
 
 
-//missions routes start from here
-Route::prefix('missions')->group(function () {
-Route::get('/view',[MissionController::class,'index'])->name('missions.view');
-Route::get('/create',[MissionController::class,'create'])->name('missions.create');
-Route::post('/store',[MissionController::class,'store'])->name('missions.store');
-Route::get('/edit/{id}',[MissionController::class,'edit'])->name('missions.edit');
-Route::post('/update/{id}',[MissionController::class,'update'])->name('missions.update');
-Route::get('/destroy/{id}',[MissionController::class,'destroy'])->name('missions.destroy');
-});
-
-//Vision routes start from here
-Route::prefix('visions')->group(function () {
-Route::get('/view',[VisionController::class,'index'])->name('visions.view');
-Route::get('/create',[VisionController::class,'create'])->name('visions.create');
-Route::post('/store',[VisionController::class,'store'])->name('visions.store');
-Route::get('/edit/{id}',[VisionController::class,'edit'])->name('visions.edit');
-Route::post('/update/{id}',[VisionController::class,'update'])->name('visions.update');
-Route::get('/destroy/{id}',[VisionController::class,'destroy'])->name('visions.destroy');
-});
-
-//Newsevent routes start from here
-Route::prefix('newsevents')->group(function () {
-Route::get('/view',[NewseventController::class,'index'])->name('newsevents.view');
-Route::get('/create',[NewseventController::class,'create'])->name('newsevents.create');
-Route::post('/store',[NewseventController::class,'store'])->name('newsevents.store');
-Route::get('/edit/{id}',[NewseventController::class,'edit'])->name('newsevents.edit');
-Route::post('/update/{id}',[NewseventController::class,'update'])->name('newsevents.update');
-Route::get('/destroy/{id}',[NewseventController::class,'destroy'])->name('newsevents.destroy');
-});
-
-//services routes start from here
-Route::prefix('services')->group(function () {
-Route::get('/view',[ServiceController::class,'index'])->name('services.view');
-Route::get('/create',[ServiceController::class,'create'])->name('services.create');
-Route::post('/store',[ServiceController::class,'store'])->name('services.store');
-Route::get('/edit/{id}',[ServiceController::class,'edit'])->name('services.edit');
-Route::post('/update/{id}',[ServiceController::class,'update'])->name('services.update');
-Route::get('/destroy/{id}',[ServiceController::class,'destroy'])->name('services.destroy');
-});
-
 //services routes start from here
 Route::prefix('contacts')->group(function () {
 Route::get('/view',[ContactController::class,'index'])->name('contacts.view');

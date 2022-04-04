@@ -1,6 +1,7 @@
 @extends('frontend/layouts.master')
 @section('content')
-@include('frontend.layouts.middle')
+@include('frontend.layouts.slider')
+@include('frontend.layouts.product')
 @endsection
 
 
