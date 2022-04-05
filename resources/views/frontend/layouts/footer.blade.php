@@ -8,7 +8,7 @@
 						Contact Us
 					</h4>
 					<p class="stext-107 cl7 hov-cl1 trans-04" style="font-size: 15px;">
-	                    Address: Notun bazar,Gulshan-Dhaka, &nbsp; Cell: 01928511049 , &nbsp; Email: asadullahkpi@gmail.com
+	                    Address: Bosila,Mohammadpur-Dhaka, &nbsp; Cell: 01989139570 , &nbsp; Email: mhakash5000@gmail.com
 	                </p>
 				</div>
 
@@ -29,7 +29,7 @@
 
 			<div class="p-t-40">
 				<p class="stext-107 cl6 txt-center">
-					Copyright &copy;<script>document.write(new Date().getFullYear());</script> @FF. Designed & Developed By Popularsoft
+					Copyright &copy;<script>document.write(new Date().getFullYear());</script> Designed & Developed By CodingDuck
 				</p>
 			</div>
 		</div>

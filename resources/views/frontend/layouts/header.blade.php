@@ -1,5 +1,5 @@
 	<!-- start header -->
-  <header class="header-v4">
+<header class="header-v4">
 		<!-- Header desktop -->
 		<div class="container-menu-desktop">
 			<!-- Topbar -->
@@ -31,7 +31,7 @@
 					
 					<!-- Logo desktop -->		
 					<a href="index.html" class="logo">
-						<img src="images/logo/logo.png" alt="IMG-LOGO">
+						<img src="{{asset('public/frontend')}}/images/logo/logo.png" alt="IMG-LOGO">
 					</a>
 
 					<!-- Menu desktop -->
@@ -73,7 +73,7 @@
 		<div class="wrap-header-mobile">
 			<!-- Logo moblie -->		
 			<div class="logo-mobile">
-				<a href="index.html"><img src="images/logo/logo.png" alt="IMG-LOGO"></a>
+				<a href="index.html"><img src="{{asset('public/frontend')}}/images/logo/logo.png" alt="IMG-LOGO"></a>
 			</div>
 
 			<!-- Icon header -->
@@ -143,7 +143,7 @@
 		<div class="modal-search-header flex-c-m trans-04 js-hide-modal-search">
 			<div class="container-search-header">
 				<button class="flex-c-m btn-hide-modal-search trans-04 js-hide-modal-search">
-					<img src="images/icons/icon-close2.png" alt="CLOSE">
+					<img src="{{asset('public/frontend')}}/images/icons/icon-close2.png" alt="CLOSE">
 				</button>
 
 				<form class="wrap-search-header flex-w p-l-15">
@@ -154,91 +154,93 @@
 				</form>
 			</div>
 		</div>
-	</header>
+</header>
   <!-- end header -->
 
-  <!-- start cart -->
-	<div class="wrap-header-cart js-panel-cart">
-		<div class="s-full js-hide-cart"></div>
+  <!-- header Cart start-->
+<div class="wrap-header-cart js-panel-cart">
+	<div class="s-full js-hide-cart"></div>
 
-		<div class="header-cart flex-col-l p-l-65 p-r-25">
-			<div class="header-cart-title flex-w flex-sb-m p-b-8">
-				<span class="mtext-103 cl2">
-					Your Cart
-				</span>
+	<div class="header-cart flex-col-l p-l-65 p-r-25">
+		<div class="header-cart-title flex-w flex-sb-m p-b-8">
+			<span class="mtext-103 cl2">
+				Your Cart
+			</span>
 
-				<div class="fs-35 lh-10 cl2 p-lr-5 pointer hov-cl1 trans-04 js-hide-cart">
-					<i class="zmdi zmdi-close"></i>
-				</div>
+			<div class="fs-35 lh-10 cl2 p-lr-5 pointer hov-cl1 trans-04 js-hide-cart">
+				<i class="zmdi zmdi-close"></i>
 			</div>
+		</div>
+		
+		<div class="header-cart-content flex-w js-pscroll">
+			<ul class="header-cart-wrapitem w-full">
+				<li class="header-cart-item flex-w flex-t m-b-12">
+					<div class="header-cart-item-img">
+						<img src="{{asset('public/frontend')}}/images/item-cart-01.jpg" alt="IMG">
+					</div>
+
+					<div class="header-cart-item-txt p-t-8">
+						<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
+							White Shirt Pleat
+						</a>
+
+						<span class="header-cart-item-info">
+							1 x $19.00
+						</span>
+					</div>
+				</li>
+
+				<li class="header-cart-item flex-w flex-t m-b-12">
+					<div class="header-cart-item-img">
+						<img src="{{asset('public/frontend')}}/images/item-cart-02.jpg" alt="IMG">
+					</div>
+
+					<div class="header-cart-item-txt p-t-8">
+						<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
+							Converse All Star
+						</a>
+
+						<span class="header-cart-item-info">
+							1 x $39.00
+						</span>
+					</div>
+				</li>
+
+				<li class="header-cart-item flex-w flex-t m-b-12">
+					<div class="header-cart-item-img">
+						<img src="{{asset('public/frontend')}}/images/item-cart-03.jpg" alt="IMG">
+					</div>
+
+					<div class="header-cart-item-txt p-t-8">
+						<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
+							Nixon Porter Leather
+						</a>
+
+						<span class="header-cart-item-info">
+							1 x $17.00
+						</span>
+					</div>
+				</li>
+			</ul>
 			
-			<div class="header-cart-content flex-w js-pscroll">
-				<ul class="header-cart-wrapitem w-full">
-					<li class="header-cart-item flex-w flex-t m-b-12">
-						<div class="header-cart-item-img">
-							<img src="images/item-cart-01.jpg" alt="IMG">
-						</div>
+			<div class="w-full">
+				<div class="header-cart-total w-full p-tb-40">
+					Total: $75.00
+				</div>
 
-						<div class="header-cart-item-txt p-t-8">
-							<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-								White Shirt Pleat
-							</a>
+				<div class="header-cart-buttons flex-w w-full">
+					<a href="shoping-cart.html" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
+						View Cart
+					</a>
 
-							<span class="header-cart-item-info">
-								1 x $19.00
-							</span>
-						</div>
-					</li>
-
-					<li class="header-cart-item flex-w flex-t m-b-12">
-						<div class="header-cart-item-img">
-							<img src="images/item-cart-02.jpg" alt="IMG">
-						</div>
-
-						<div class="header-cart-item-txt p-t-8">
-							<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-								Converse All Star
-							</a>
-
-							<span class="header-cart-item-info">
-								1 x $39.00
-							</span>
-						</div>
-					</li>
-
-					<li class="header-cart-item flex-w flex-t m-b-12">
-						<div class="header-cart-item-img">
-							<img src="images/item-cart-03.jpg" alt="IMG">
-						</div>
-
-						<div class="header-cart-item-txt p-t-8">
-							<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-								Nixon Porter Leather
-							</a>
-
-							<span class="header-cart-item-info">
-								1 x $17.00
-							</span>
-						</div>
-					</li>
-				</ul>
-				
-				<div class="w-full">
-					<div class="header-cart-total w-full p-tb-40">
-						Total: $75.00
-					</div>
-
-					<div class="header-cart-buttons flex-w w-full">
-						<a href="shoping-cart.html" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
-							View Cart
-						</a>
-
-						<a href="shoping-cart.html" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
-							Check Out
-						</a>
-					</div>
+					<a href="shoping-cart.html" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
+						Check Out
+					</a>
 				</div>
 			</div>
 		</div>
 	</div>
-  <!-- end cart -->
+</div>
+<!-- header cart nd-->
+
+
