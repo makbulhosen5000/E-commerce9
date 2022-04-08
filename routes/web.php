@@ -3,13 +3,9 @@
 use App\Http\Controllers\Backend\AboutController;
 use App\Http\Controllers\Backend\ContactController;
 use App\Http\Controllers\Backend\LogoController;
-use App\Http\Controllers\Backend\MissionController;
-use App\Http\Controllers\Backend\NewseventController;
 use App\Http\Controllers\Backend\ProfileController;
-use App\Http\Controllers\Backend\ServiceController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\UserController;
-use App\Http\Controllers\Backend\VisionController;
 use App\Http\Controllers\Frontend\FrontendController;
 use Illuminate\Support\Facades\Route;
 
@@ -34,12 +30,10 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 //all header(frontend page)routes start from here
 Route::get('/',[FrontendController::class,'index']);
-Route::get('aboutUs',[FrontendController::class,'AboutUs'])->name('aboutUs');
-Route::get('contactUs',[FrontendController::class,'contactUs'])->name('contactUs');
-Route::get('mission',[FrontendController::class,'MiSsion'])->name('mission');
-Route::get('vision',[FrontendController::class,'ViSion'])->name('vision');
-Route::get('newsevent.details/{id}',[FrontendController::class,'NewsEventDetails'])->name('newsevent.details');
-Route::post('Contact.Store',[FrontendController::class,'Store'])->name('Contact.Store');
+Route::get('about/us',[FrontendController::class,'AboutUs'])->name('about.us');
+Route::get('contact/us',[FrontendController::class,'contactUs'])->name('contact.us');
+Route::post('contact/store',[FrontendController::class,'Store'])->name('contact.store');
+Route::get('/shopping/cart',[FrontendController::class,'ShopingCart'])->name('shopping.cart');
 
 // group middleware start from here
 Route::group(['middleware' => ['test']], function () {

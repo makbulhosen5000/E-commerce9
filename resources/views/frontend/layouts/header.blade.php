@@ -38,21 +38,21 @@
 					<div class="menu-desktop">
 						<ul class="main-menu">
 	                        <li class="active-menu">
-	                            <a href="index.html">HOME</a>
+	                            <a href="{{url('/')}}">HOME</a>
 	                        </li>
 	                        <li class="active-menu">
 	                            <a href="#">SHOPS</a>
 	                            <ul class="sub-menu">
 	                                <li><a href="">Products</a></li>
 	                                <li><a href="shoping-cart.html">Checkout</a></li>
-	                                <li><a href="">Cart</a></li>
+	                                <li><a href="{{route('shopping.cart')}}">Cart</a></li>
 	                            </ul>
 	                        </li>
 	                        <li>
-	                            <a href="">ABOUT US</a>
+	                            <a href="{{route('about.us')}}">ABOUT US</a>
 	                        </li>
 	                        <li>
-	                            <a href="contact.html">CONTACT US</a>
+	                            <a href="{{route('contact.us')}}">CONTACT US</a>
 	                        </li>
 
 	                        <li><a href="">LOGIN</a></li>
@@ -73,7 +73,7 @@
 		<div class="wrap-header-mobile">
 			<!-- Logo moblie -->		
 			<div class="logo-mobile">
-				<a href="index.html"><img src="{{asset('public/frontend')}}/images/logo/logo.png" alt="IMG-LOGO"></a>
+				<a href="{{url('/')}}"><img src="{{asset('public/frontend')}}/images/logo/logo.png" alt="IMG-LOGO"></a>
 			</div>
 
 			<!-- Icon header -->
@@ -117,23 +117,23 @@
 			</ul>
 
 			<ul class="main-menu-m">
-				<li><a href="index.html">Home</a></li>
+				<li><a href="{{url('/')}}">Home</a></li>
 				<li>
 					<a href="">SHOPS</a>
 					<ul class="sub-menu-m">
 						<li><a href="">Products</a></li>
                         <li><a href="">Checkout</a></li>
-                        <li><a href="shoping-cart.html">Cart</a></li>
+                        <li><a href="{{route('shopping.cart')}}">Cart</a></li>
 					</ul>
 					<span class="arrow-main-menu-m">
 						<i class="fa fa-angle-right" aria-hidden="true"></i>
 					</span>
 				</li>
 				<li>
-                    <a href="">ABOUT US</a>
+                    <a href="{{route('about.us')}}">ABOUT US</a>
                 </li>
                 <li>
-                    <a href="contact.html">CONTACT US</a>
+                    <a href="{{route('contact.us')}}">CONTACT US</a>
                 </li>
                 <li><a href="">LOGIN</a></li>
 			</ul>

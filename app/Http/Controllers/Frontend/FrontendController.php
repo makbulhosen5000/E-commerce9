@@ -15,14 +15,6 @@ use Mail;
 
 class FrontendController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-
-
-
     //all header function is here
     public function index()
     {
@@ -37,33 +29,19 @@ class FrontendController extends Controller
         $data['sliders']=Slider::all();
         $data['contacts']=Contact::first();
         $data['about_us']=About::first();
-        return view('frontend.singlePages.aboutUs',$data);
+        return view('frontend.single-pages.about-us',$data);
     }
     public function ContactUs(){
         $data['logo']=Logo::first();
         $data['sliders']=Slider::all();
         $data['contacts']=Contact::first();
-        return view('frontend.singlePages.contactUs',$data);
+        return view('frontend.single-pages.contact-us',$data);
     }
-    public function MiSsion(){
-        $data['logo']=Logo::first();
-        $data['sliders']=Slider::all();
-        $data['contacts']=Contact::first();
-        return view('frontend.singlePages.mission',$data);
+    public function ShopingCart(){
+    $data['logo']=Logo::first();
+    $data['contacts']=Contact::first();
+        return view('frontend.single-pages.shopping-cart',$data);
     }
-    public function ViSion(){
-        $data['logo']=Logo::first();
-        $data['sliders']=Slider::all();
-        $data['contacts']=Contact::first();
-        return view('frontend.singlePages.vision',$data);
-    }
-   public function NewsEventDetails($id){
-      $data['logo']=Logo::first();
-      $data['sliders']=Slider::all();
-      $data['contacts']=Contact::first();
-      return view('frontend.singlePages.newsevent-details',$data);
-   }
-
     public function Store(Request $request)
     {
         $contactUs=new ContactUs();
