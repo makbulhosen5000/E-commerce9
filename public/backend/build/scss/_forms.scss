@@ -98,6 +98,7 @@
 
 label:not(.form-check-label):not(.custom-file-label) {
   font-weight: $font-weight-bold;
+  text-align: left;
 }
 
 .warning-feedback {

@@ -35,11 +35,6 @@
     <div class="row">
         <div class="col-md-6 offset-3 pt-3">
             <form action="{{route('profile.update')}} " method="POST" enctype="multipart/form-data" >
-                @csrf
-                @if(Session::has('success'))
-                <div class="btn btn-success">{{Session::get('success')}} </div>
-                @endif
-
                 <div class="form-group">
                     <label for="my-input">Role</label>
                     <input id="my-input" class="form-control" type="text" name="role"value='{{$editData->role}} '>

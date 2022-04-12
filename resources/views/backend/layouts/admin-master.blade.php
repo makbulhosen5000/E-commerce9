@@ -25,10 +25,13 @@
   <link rel="stylesheet" href="{{asset('public')}}/backend/plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
   <link rel="stylesheet" href="{{asset('public')}}/backend/plugins/summernote/summernote-bs4.css">
-  {{-- data table --}}
-  <link rel="stylesheet" href="{{asset('public')}}/backend/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="{{asset('public')}}/backend/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="{{asset('public')}}/backend/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <!-- tostr massage -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
   {{-- sweet alert --}}
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
   <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
@@ -93,7 +96,7 @@
 @include('backend.layouts.admin-sidebar')
     @yield('content')
   <footer class="main-footer  bg-dark">
-    <strong>Copyright &copy; 2020 <a href="#">CodingDuck</a></strong>
+    <strong>Copyright &copy; 2022 <a href="https://mhakash5000.github.io/resume-of-md.makbul-hosen-/">Developer Info</a></strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
       <b>Designed and developed by CodingDuck</b>
@@ -146,6 +149,7 @@
 <script src="{{asset('public')}}/backend/plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="{{asset('public')}}/backend/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
 <script src="{{asset('public')}}/backend/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="{{asset('public')}}/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 <script>
     $(function () {
       $("#example1").DataTable({
@@ -163,6 +167,13 @@
       });
     });
   </script>
+  <!-- for toaster massage -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<script>
+    @if(Session::has('success'))
+    toastr.success("{{Session::get('success')}}");
+    @endif
+</script>
   <script>
       $(function(){
           $(document).on('click','#delete',function(e){

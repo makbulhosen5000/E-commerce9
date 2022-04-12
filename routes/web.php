@@ -1,12 +1,14 @@
 <?php
 
 use App\Http\Controllers\Backend\AboutController;
+use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\ContactController;
 use App\Http\Controllers\Backend\LogoController;
 use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Frontend\FrontendController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,18 +28,18 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-//all header(frontend page)routes start from here
+//__frontend page routes start from here__//
 Route::get('/',[FrontendController::class,'index']);
-Route::get('about/us',[FrontendController::class,'AboutUs'])->name('about.us');
-Route::get('contact/us',[FrontendController::class,'contactUs'])->name('contact.us');
-Route::post('contact/store',[FrontendController::class,'Store'])->name('contact.store');
-Route::get('/shopping/cart',[FrontendController::class,'ShopingCart'])->name('shopping.cart');
+Route::get('/about-us',[FrontendController::class,'AboutUs'])->name('about.us');
+Route::get('/contact-us',[FrontendController::class,'contactUs'])->name('contact.us');
+Route::post('/contact-store',[FrontendController::class,'Store'])->name('contact.store');
+Route::get('/shopping-cart',[FrontendController::class,'ShopingCart'])->name('shopping.cart');
+//__frontend page routes end from here__//
 
-// group middleware start from here
+//__backend page routes start from here__//
 Route::group(['middleware' => ['test']], function () {
-//all header(backend page)routes start from here
 Route::prefix('users')->group(function () {
 Route::get('/all',[UserController::class,'index'])->name('users.all');
 Route::get('/create',[UserController::class,'create'])->name('users.create');
@@ -71,7 +73,7 @@ Route::post('/update/{id}',[LogoController::class,'update'])->name('logos.update
 Route::get('/destroy/{id}',[LogoController::class,'destroy'])->name('logos.destroy');
 });
 
-//Sliders routes start from here
+//sliders routes start from here
 Route::prefix('sliders')->group(function () {
 Route::get('/view',[SliderController::class,'index'])->name('sliders.view');
 Route::get('/create',[SliderController::class,'create'])->name('sliders.create');
@@ -82,7 +84,7 @@ Route::get('/destroy/{id}',[SliderController::class,'destroy'])->name('sliders.d
 });
 
 
-//services routes start from here
+//contacts routes start from here
 Route::prefix('contacts')->group(function () {
 Route::get('/view',[ContactController::class,'index'])->name('contacts.view');
 Route::get('/create',[ContactController::class,'create'])->name('contacts.create');
@@ -92,15 +94,25 @@ Route::post('/update/{id}',[ContactController::class,'update'])->name('contacts.
 Route::get('/destroy/{id}',[ContactController::class,'destroy'])->name('contacts.destroy');
 });
 
-//services routes start from here
+//__about routes start from here__//
 Route::prefix('about')->group(function () {
-Route::get('/view',[AboutController::class,'destroy'])->name('about.view');
+Route::get('/view',[AboutController::class,'index'])->name('about.view');
 Route::get('/create',[AboutController::class,'create'])->name('about.create');
 Route::post('/store',[AboutController::class,'store'])->name('about.store');
 Route::get('/edit/{id}',[AboutController::class,'edit'])->name('about.edit');
 Route::post('/update/{id}',[AboutController::class,'update'])->name('about.update');
 Route::get('/destroy/{id}',[AboutController::class,'destroy'])->name('about.destroy');
 });
+//category routes start from here__//
+Route::prefix('categories')->group(function () {
+Route::get('/view',[CategoryController::class,'index'])->name('categories.view');
+Route::get('/create',[CategoryController::class,'create'])->name('categories.create');
+Route::post('/store',[CategoryController::class,'store'])->name('categories.store');
+Route::get('/edit/{id}',[CategoryController::class,'edit'])->name('categories.edit');
+Route::post('/update/{id}',[CategoryController::class,'update'])->name('categories.update');
+Route::get('/destroy/{id}',[CategoryController::class,'destroy'])->name('categories.destroy');
+});
+
 
 //User Email route
 Route::prefix('email')->group(function () {
