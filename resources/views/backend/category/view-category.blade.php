@@ -65,40 +65,7 @@
             </div>
             <!-- /.card-body -->
           </div>
-     
- 
-          </div>
-          <!-- /.card -->
-            <!-- <table id="example2" class="table table-bordered table-hover text-center">
-                {{-- table start --}}
-                <thead>
-                    <tr>
-                        <th width='6%' >ID</th>
-                        <th>Category</th>
-                        <th width='20%'>Action</th>
-
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($category as $key=> $item)
-                    <tr>
-                        <td>{{$key+1}}</td>
-                        <td>{{$item->name}}</td>
-
-
-                        <td>
-                            <a href="{{route('categories.edit',$item->id)}}" class="btn btn-warning" title="Edit"><i class="fa fa-user-edit"></i></a>
-                            <a href="{{route('categories.destroy',$item->id)}} " id="delete" class="btn btn-danger" title="Delete"><i class="fa fa-trash"></i></a>
-                        
-                        </td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table> -->
-     
-
-
-
+        </div>
 </div>
 {{-- card end --}}
 

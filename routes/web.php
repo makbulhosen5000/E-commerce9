@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Backend\AboutController;
+use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\ContactController;
 use App\Http\Controllers\Backend\LogoController;
@@ -112,6 +113,16 @@ Route::get('/edit/{id}',[CategoryController::class,'edit'])->name('categories.ed
 Route::post('/update/{id}',[CategoryController::class,'update'])->name('categories.update');
 Route::get('/destroy/{id}',[CategoryController::class,'destroy'])->name('categories.destroy');
 });
+//Brand routes start from here__//
+Route::prefix('brands')->group(function () {
+Route::get('/view',[BrandController::class,'index'])->name('brands.view');
+Route::get('/create',[BrandController::class,'create'])->name('brands.create');
+Route::post('/store',[BrandController::class,'store'])->name('brands.store');
+Route::get('/edit/{id}',[BrandController::class,'edit'])->name('brands.edit');
+Route::post('/update/{id}',[BrandController::class,'update'])->name('brands.update');
+Route::get('/destroy/{id}',[BrandController::class,'destroy'])->name('brands.destroy');
+});
+    
 
 
 //User Email route
