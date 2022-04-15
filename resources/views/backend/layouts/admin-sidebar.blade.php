@@ -80,6 +80,40 @@
               </li>
             </ul>
         </li>
+        <li class="nav-item has-treeview {{($prefix=='/brands')?'menu-open':''}} ">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Color Management
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('colors.view')}}" class="nav-link {{($route=='colors.view')?'active':''}} ">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Color List</p>
+                </a>
+              </li>
+            </ul>
+        </li>
+        <li class="nav-item has-treeview {{($prefix=='/brands')?'menu-open':''}} ">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Size Management
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('sizes.view')}}" class="nav-link {{($route=='sizes.view')?'active':''}} ">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Size List</p>
+                </a>
+              </li>
+            </ul>
+        </li>
         <li class="nav-item has-treeview {{($prefix=='/profile')?'menu-open':''}} ">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>

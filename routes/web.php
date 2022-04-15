@@ -3,9 +3,11 @@
 use App\Http\Controllers\Backend\AboutController;
 use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\CategoryController;
+use App\Http\Controllers\Backend\ColorController;
 use App\Http\Controllers\Backend\ContactController;
 use App\Http\Controllers\Backend\LogoController;
 use App\Http\Controllers\Backend\ProfileController;
+use App\Http\Controllers\Backend\SizeController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Frontend\FrontendController;
@@ -121,6 +123,24 @@ Route::post('/store',[BrandController::class,'store'])->name('brands.store');
 Route::get('/edit/{id}',[BrandController::class,'edit'])->name('brands.edit');
 Route::post('/update/{id}',[BrandController::class,'update'])->name('brands.update');
 Route::get('/destroy/{id}',[BrandController::class,'destroy'])->name('brands.destroy');
+});
+//Color routes start from here__//
+Route::prefix('colors')->group(function () {
+Route::get('/view',[ColorController::class,'index'])->name('colors.view');
+Route::get('/create',[ColorController::class,'create'])->name('colors.create');
+Route::post('/store',[ColorController::class,'store'])->name('colors.store');
+Route::get('/edit/{id}',[ColorController::class,'edit'])->name('colors.edit');
+Route::post('/update/{id}',[ColorController::class,'update'])->name('colors.update');
+Route::get('/destroy/{id}',[ColorController::class,'destroy'])->name('colors.destroy');
+});
+//Size routes start from here__//
+Route::prefix('sizes')->group(function () {
+Route::get('/view',[SizeController::class,'index'])->name('sizes.view');
+Route::get('/create',[SizeController::class,'create'])->name('sizes.create');
+Route::post('/store',[SizeController::class,'store'])->name('sizes.store');
+Route::get('/edit/{id}',[SizeController::class,'edit'])->name('sizes.edit');
+Route::post('/update/{id}',[SizeController::class,'update'])->name('sizes.update');
+Route::get('/destroy/{id}',[SizeController::class,'destroy'])->name('sizes.destroy');
 });
     
 
