@@ -25,19 +25,19 @@
         <div class="card-body ">
             <div class="row">
                 <div class="col-md-12  d-flex justify-content-between align-items-center">
-                  @if(isset($editBrand))
-                  <h5 class="display-5">Edit Brand</h5>
+                  @if(isset($editColor))
+                  <h5 class="display-5">Edit Color</h5>
                     @else
-                    <h5 class="display-5">Create Brand</h5>
+                    <h5 class="display-5">Create Color</h5>
                   @endif
-                  <a href="{{route('brands.view')}}" class="btn btn-warning text-dark"> <i class="fa fa-list"></i> Brand List</a>
+                  <a href="{{route('colors.view')}}" class="btn btn-warning text-dark"> <i class="fa fa-list"></i> Brand List</a>
                 </div>
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col-md-6 offset-3 pt-3">
-            <form action="{{(@$editBrand)?route('brands.update',$editBrand->id):route('brands.store')}} " method="POST" enctype="multipart/form-data">
+            <form action="{{(@$editColor)?route('colors.update',$editColor->id):route('colors.store')}} " method="POST" enctype="multipart/form-data">
                 @csrf
                 @if ($errors->any())
                     <div class="alert alert-danger">
@@ -50,11 +50,11 @@
                 @endif
                 <div class="form-group">
                     <label for="my-input">Brand</label>
-                    <input type="text" class="form-control" name="name" id="" value="{{@$editBrand->name}}" type="text" placeholder="Add Category Name" required>
+                    <input type="text" class="form-control" name="name" id="" value="{{@$editColor->name}}" type="text" placeholder="Add Category Name" required>
                     <font style="color:red">{{($errors->has('name'))?($errors->first('name')):''}} </font>
                 </div>
                 <div class="form-group">
-                  <button type="submit" id="button" class="btn btn-success">{{(@$editBrand)?"Update":"Submit"}} </button>
+                  <button type="submit" id="button" class="btn btn-success">{{(@$editColor)?"Update":"Submit"}} </button>
                 </div>
 
             </form>

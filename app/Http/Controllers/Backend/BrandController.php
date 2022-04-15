@@ -72,6 +72,6 @@ class BrandController extends Controller
       {
          $deleteBrand=Brand::find($id);
          $deleteBrand->delete();
-        return redirect()->route('categories.view');
+        return redirect()->route('brands.view');
       }
 }

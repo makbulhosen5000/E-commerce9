@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class BrandRequest extends FormRequest
+class ColorRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,11 +25,11 @@ class BrandRequest extends FormRequest
     {
         if(isset($this->id)){
             return [
-                'name' => 'required|unique:brands,name,'.$this->id
+                'name' => 'required|unique:colors,name,'.$this->id
             ];
         }
             return [
-                'name' => 'required|unique:brands'
+                'name' => 'required|unique:colors'
             ];
     }
 }

@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class BrandRequest extends FormRequest
+class SizeRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class BrandRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return false;
     }
 
     /**
@@ -23,13 +23,8 @@ class BrandRequest extends FormRequest
      */
     public function rules()
     {
-        if(isset($this->id)){
-            return [
-                'name' => 'required|unique:brands,name,'.$this->id
-            ];
-        }
-            return [
-                'name' => 'required|unique:brands'
-            ];
+        return [
+            //
+        ];
     }
 }
