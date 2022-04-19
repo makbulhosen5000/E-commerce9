@@ -48,7 +48,7 @@
                     </thead>
                     <tbody>
                         @foreach ($category as $key=> $item)
-                        <tr>
+                        <tr class="{{$item->id}}">
                             <td>{{$key+1}}</td>
                             <td>{{$item->name}}</td>
 

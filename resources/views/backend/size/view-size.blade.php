@@ -26,8 +26,8 @@
               <div class="card-body ">
                   <div class="row">
                       <div class="col-md-12  d-flex justify-content-between align-items-center">
-                          <h5 class="display-5">Color List</h5>
-                        <a href="{{route('colors.create')}}" class="btn btn-warning text-dark"><i class="fa fa-plus-circle"></i>Create Color</a>
+                          <h5 class="display-5">Size List</h5>
+                        <a href="{{route('sizes.create')}}" class="btn btn-warning text-dark"><i class="fa fa-plus-circle"></i>Create Size</a>
                       </div>
                   </div>
               </div>
@@ -42,21 +42,21 @@
                         <thead>
                               <tr>
                                   <th>ID</th>
-                                  <th>Color</th>
+                                  <th>Size</th>
                                   <th>Action</th>
 
                               </tr>
                           </thead>
                           <tbody>
-                              @foreach ($color as $key=> $item)
+                              @foreach ($size as $key=> $item)
                               <tr class="{{$item->id}}">
                                   <td>{{$key+1}}</td>
                                   <td>{{$item->name}}</td>
 
 
                                   <td>
-                                      <a href="{{route('colors.edit',$item->id)}}" class="btn btn-warning" title="Edit"><i class="fa fa-user-edit"></i></a>
-                                      <a href="{{route('colors.destroy',$item->id)}} " id="delete" class="btn btn-danger" title="Delete"><i class="fa fa-trash"></i></a>
+                                      <a href="{{route('sizes.edit',$item->id)}}" class="btn btn-warning" title="Edit"><i class="fa fa-user-edit"></i></a>
+                                      <a href="{{route('sizes.destroy',$item->id)}} " id="delete" class="btn btn-danger" title="Delete"><i class="fa fa-trash"></i></a>
                                   
                                   </td>
                               </tr>

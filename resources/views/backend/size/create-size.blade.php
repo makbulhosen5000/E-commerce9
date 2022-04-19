@@ -25,19 +25,19 @@
         <div class="card-body ">
             <div class="row">
                 <div class="col-md-12  d-flex justify-content-between align-items-center">
-                  @if(isset($editColor))
-                  <h5 class="display-5">Edit Color</h5>
+                  @if(isset($editSize))
+                  <h5 class="display-5">Edit Size</h5>
                     @else
-                    <h5 class="display-5">Create Color</h5>
+                    <h5 class="display-5">Create Size</h5>
                   @endif
-                  <a href="{{route('colors.view')}}" class="btn btn-warning text-dark"> <i class="fa fa-list"></i> Color List</a>
+                  <a href="{{route('sizes.view')}}" class="btn btn-warning text-dark"> <i class="fa fa-list"></i> Size List</a>
                 </div>
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col-md-6 offset-3 pt-3">
-            <form action="{{(@$editColor)?route('colors.update',$editColor->id):route('colors.store')}} " method="POST" enctype="multipart/form-data">
+            <form action="{{(@$editSize)?route('sizes.update',$editSize->id):route('sizes.store')}} " method="POST" enctype="multipart/form-data">
                 @csrf
                 @if ($errors->any())
                     <div class="alert alert-danger">
@@ -49,12 +49,12 @@
                     </div>
                 @endif
                 <div class="form-group">
-                    <label for="my-input">Color</label>
-                    <input type="text" class="form-control" name="name" id="" value="{{@$editColor->name}}" type="text" placeholder="Add Color Name" required>
-                    <font style="color:red">{{($errors->has('name'))?($errors->first('name')):''}} </font>
+                    <label for="my-input">Size</label>
+                    <input type="text" class="form-control" name="name" id="" value="{{@$editSize->name}}" type="text" placeholder="Add Size Name" required>
+                    <font style="Size:red">{{($errors->has('name'))?($errors->first('name')):''}} </font>
                 </div>
                 <div class="form-group">
-                  <button type="submit" id="button" class="btn btn-success">{{(@$editColor)?"Update":"Submit"}} </button>
+                  <button type="submit" id="button" class="btn btn-success">{{(@$editSize)?"Update":"Submit"}} </button>
                 </div>
 
             </form>

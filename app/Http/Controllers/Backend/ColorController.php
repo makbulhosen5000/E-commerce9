@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ColorRequest;
 use Illuminate\Http\Request;
-use App\Models\Brand;
 use App\Models\Color;
 use Auth;
 use Session;

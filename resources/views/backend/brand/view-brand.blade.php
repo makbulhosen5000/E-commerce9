@@ -49,7 +49,7 @@
                           </thead>
                           <tbody>
                               @foreach ($brand as $key=> $item)
-                              <tr>
+                              <tr class="{{$item->id}}">
                                   <td>{{$key+1}}</td>
                                   <td>{{$item->name}}</td>
 

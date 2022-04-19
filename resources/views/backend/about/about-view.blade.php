@@ -46,7 +46,7 @@
                 </thead>
                 <tbody>
                     @foreach ($user as $item)
-                    <tr>
+                    <tr class="{{$item->id}}">
                         <td>{{$item->id}}</td>
                         <td>{{$item->description}}</td>
 

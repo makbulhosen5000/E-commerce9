@@ -13,7 +13,7 @@ class SizeRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,8 +23,13 @@ class SizeRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            //
-        ];
+        if(isset($this->id)){
+            return [
+                'name' => 'required|unique:sizes,name,'.$this->id
+            ];
+        }
+            return [
+                'name' => 'required|unique:sizes'
+            ];
     }
 }

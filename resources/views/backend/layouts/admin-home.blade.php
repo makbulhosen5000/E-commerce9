@@ -129,11 +129,7 @@
 
         </div>
         <!-- /.row (main row) -->
-        <div class="cart">
-          <div class="col-lg-5">
-<script type="text/javascript" src="http://www.muslimpro.com/muslimprowidget.js?cityid=4940239&language=en&width=150&timeformat=12&headerbackgroundcolor=888888&headertextcolor=000000&textcolor=000000&rowbackgroundcolor1=eeeeee&rowbackgroundcolor2=cccccc" async></script>          
-          </div>
-        </div>
+        
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
