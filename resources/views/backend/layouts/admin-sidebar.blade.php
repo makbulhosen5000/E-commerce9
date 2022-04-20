@@ -33,7 +33,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-                User Management
+              Manage User 
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -46,79 +46,11 @@
               </li>
             </ul>
         </li>
-        <li class="nav-item has-treeview {{($prefix=='/categories')?'menu-open':''}} ">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
-              <p>
-                Category Management
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{route('categories.view')}}" class="nav-link {{($route=='categories.view')?'active':''}} ">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Category List</p>
-                </a>
-              </li>
-            </ul>
-        </li>
-        <li class="nav-item has-treeview {{($prefix=='/brands')?'menu-open':''}} ">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
-              <p>
-                Brand Management
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{route('brands.view')}}" class="nav-link {{($route=='brands.view')?'active':''}} ">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Brand List</p>
-                </a>
-              </li>
-            </ul>
-        </li>
-        <li class="nav-item has-treeview {{($prefix=='/brands')?'menu-open':''}} ">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
-              <p>
-                Color Management
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{route('colors.view')}}" class="nav-link {{($route=='colors.view')?'active':''}} ">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Color List</p>
-                </a>
-              </li>
-            </ul>
-        </li>
-        <li class="nav-item has-treeview {{($prefix=='/brands')?'menu-open':''}} ">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
-              <p>
-                Size Management
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{route('sizes.view')}}" class="nav-link {{($route=='sizes.view')?'active':''}} ">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Size List</p>
-                </a>
-              </li>
-            </ul>
-        </li>
         <li class="nav-item has-treeview {{($prefix=='/profile')?'menu-open':''}} ">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-                Profile Management
+              Manage Profile 
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -139,13 +71,11 @@
                 </li>
               </ul>
         </li>
-
-
         <li class="nav-item has-treeview {{($prefix=='/logos')?'menu-open':''}} ">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-                Logo Management
+              Manage Logo 
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -164,7 +94,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-                Slider Management
+              Manage Slider
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -177,11 +107,97 @@
               </li>
             </ul>
         </li>
+        <li class="nav-item has-treeview {{($prefix=='/categories')?'menu-open':''}} ">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+              Manage Category
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('categories.view')}}" class="nav-link {{($route=='categories.view')?'active':''}} ">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Category List</p>
+                </a>
+              </li>
+            </ul>
+        </li>
+        <li class="nav-item has-treeview {{($prefix=='/brands')?'menu-open':''}} ">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+              Manage Brand 
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('brands.view')}}" class="nav-link {{($route=='brands.view')?'active':''}} ">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Brand List</p>
+                </a>
+              </li>
+            </ul>
+        </li>
+        <li class="nav-item has-treeview {{($prefix=='/brands')?'menu-open':''}} ">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+              Manage Color
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('colors.view')}}" class="nav-link {{($route=='colors.view')?'active':''}} ">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Color List</p>
+                </a>
+              </li>
+            </ul>
+        </li>
+        <li class="nav-item has-treeview {{($prefix=='/brands')?'menu-open':''}} ">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+              Manage Size
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('sizes.view')}}" class="nav-link {{($route=='sizes.view')?'active':''}} ">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Size List</p>
+                </a>
+              </li>
+            </ul>
+        </li>
+        <li class="nav-item has-treeview {{($prefix=='/products')?'menu-open':''}} ">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+              Manage Product
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('products.view')}}" class="nav-link {{($route=='products.view')?'active':''}} ">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Size PRoduct</p>
+                </a>
+              </li>
+            </ul>
+        </li>
+      
         <li class="nav-item has-treeview {{($prefix=='/contacts')?'menu-open':''}} ">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-                Contact Management
+              Manage Contact 
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -198,7 +214,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-                About US Management
+              Manage About US
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -215,7 +231,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-                Email Management
+              Manage Email
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
