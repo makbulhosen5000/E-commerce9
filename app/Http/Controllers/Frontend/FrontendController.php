@@ -9,6 +9,7 @@ use App\Models\Slider;
 use App\Models\Contact;
 use App\Models\About;
 use App\Models\ContactUs;
+use App\Models\CountDownTimer;
 use Session;
 use Mail;
 

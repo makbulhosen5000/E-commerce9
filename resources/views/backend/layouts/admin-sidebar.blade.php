@@ -86,6 +86,23 @@
                   <p>Logo</p>
                 </a>
               </li>
+            </ul>
+        </li>
+        <li class="nav-item has-treeview {{($prefix=='/timers')?'menu-open':''}} ">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+              Manage CountDownTimer 
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('timers.view')}} " class="nav-link {{($route=='timers.view')?'active':''}}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Timer</p>
+                </a>
+              </li>
 
 
             </ul>
@@ -187,7 +204,7 @@
               <li class="nav-item">
                 <a href="{{route('products.view')}}" class="nav-link {{($route=='products.view')?'active':''}} ">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Size PRoduct</p>
+                  <p>Product List</p>
                 </a>
               </li>
             </ul>

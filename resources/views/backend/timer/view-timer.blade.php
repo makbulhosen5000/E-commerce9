@@ -26,8 +26,8 @@
               <div class="card-body ">
                   <div class="row">
                       <div class="col-md-12  d-flex justify-content-between align-items-center">
-                          <h5 class="display-5">Product List</h5>
-                        <a href="{{route('products.create')}}" class="btn btn-warning text-dark"><i class="fa fa-plus-circle"></i>Create Produc</a>
+                          <h5 class="display-5">Timer List</h5>
+                        <a href="{{route('timers.create')}}" class="btn btn-warning text-dark"><i class="fa fa-plus-circle"></i>Create Timer</a>
                       </div>
                   </div>
               </div>
@@ -42,27 +42,25 @@
                         <thead>
                               <tr>
                                   <th>ID</th>
-                                  <th>Category</th>
-                                  <th>Brand</th>
-                                  <th>Product Name</th>
-                                  <th>Product Price</th>
-                                  <th>Product Image</th>
+                                  <th>Title</th>
+                                  <th>Timer</th>
+                                  <th>Status</th>
                                   <th>Action</th>
 
                               </tr>
                           </thead>
                           <tbody>
-                              @foreach ($product as $key=> $item)
-                              <tr class="{{$item->id}}">
+                              @foreach ($timers as $key=> $item)
+                              <tr>
                                   <td>{{$key+1}}</td>
-                                  <td>{{$item->category_id}}</td>
-                                  <td>{{$item->brand_id}}</td>
-                                  <td>{{$item->name}}</td>
-                                  <td>{{$item->price}}</td>
-                                  <td><img src="{{asset('public/upload/user_images/'.$item->image)}}" width="60px";height='60px' alt=""></td>
+                                  <td>{{$item->title}}</td>
+                                  <td class="wrap-countdown mercado-countdown" >{{ Carbon\Carbon::parse($item->launch_date)->format('Y/m/d h:i:s') }}</td>
+                                  <td>{{$item->status}}</td>
+
+
                                   <td>
-                                      <a href="{{route('products.edit',$item->id)}}" class="btn btn-warning" title="Edit"><i class="fa fa-user-edit"></i></a>
-                                      <a href="{{route('products.destroy',$item->id)}} " id="delete" class="btn btn-danger" title="Delete"><i class="fa fa-trash"></i></a>
+                                      <a href="{{route('timers.edit',$item->id)}}" class="btn btn-warning" title="Edit"><i class="fa fa-user-edit"></i></a>
+                                      <a href="{{route('timers.destroy',$item->id)}} " id="delete" class="btn btn-danger" title="Delete"><i class="fa fa-trash"></i></a>
                                   
                                   </td>
                               </tr>

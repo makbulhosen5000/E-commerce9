@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Logo;
 use Auth;
+use Session;
 
 
 class LogoController extends Controller
@@ -37,7 +38,7 @@ class LogoController extends Controller
             $file=$request->file('image');
             $extension=$file->getClientOriginalExtension();
             $newImage=time().'.'.$extension;
-            $file->move('upload/user_images/',$newImage);
+            $file->move('public/upload/images/',$newImage);
             $userData->image=$newImage;
         }else{
             return $request;
@@ -75,7 +76,7 @@ class LogoController extends Controller
             $file=$request->file('image');
             $extension=$file->getClientOriginalExtension();
             $myImage=time().'.'.$extension;
-            $file->move('upload/user_images/',$myImage);
+            $file->move('public/upload/images/',$myImage);
             $update->image=$myImage;
         }
         $update->save();

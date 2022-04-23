@@ -5,7 +5,9 @@ use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\ColorController;
 use App\Http\Controllers\Backend\ContactController;
+use App\Http\Controllers\Backend\CountDownTimerController;
 use App\Http\Controllers\Backend\LogoController;
+use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\SizeController;
 use App\Http\Controllers\Backend\SliderController;
@@ -61,7 +63,16 @@ Route::get('/edit',[UserController::class,'edit'])->name('profile.edit');
 Route::post('/update',[UserController::class,'update'])->name('profile.update');
 Route::get('/change-password',[ProfileController::class,'ChangePassword'])->name('change.password');
 Route::post('/update-password',[ProfileController::class,'UpdatePassword'])->name('update.password');
+});
 
+//Count Down Timers routes start from here__//
+Route::prefix('timers')->group(function () {
+Route::get('/view',[CountDownTimerController::class,'index'])->name('timers.view');
+Route::get('/create',[CountDownTimerController::class,'create'])->name('timers.create');
+Route::post('/store',[CountDownTimerController::class,'store'])->name('timers.store');
+Route::get('/edit/{id}',[CountDownTimerController::class,'edit'])->name('timers.edit');
+Route::post('/update/{id}',[CountDownTimerController::class,'update'])->name('timers.update');
+Route::get('/destroy/{id}',[CountDownTimerController::class,'destroy'])->name('timers.destroy');
 });
 
 
@@ -144,12 +155,11 @@ Route::get('/destroy/{id}',[SizeController::class,'destroy'])->name('sizes.destr
 });
 //Size routes start from here__//
 Route::prefix('products')->group(function () {
-Route::get('/view',[SizeController::class,'index'])->name('products.view');
-Route::get('/create',[SizeController::class,'create'])->name('products.create');
-Route::post('/store',[SizeController::class,'store'])->name('products.store');
-Route::get('/edit/{id}',[SizeController::class,'edit'])->name('products.edit');
-Route::post('/update/{id}',[SizeController::class,'update'])->name('products.update');
-Route::get('/destroy/{id}',[SizeController::class,'destroy'])->name('products.destroy');
+Route::get('/view',[ProductController::class,'index'])->name('products.view');
+Route::get('/create',[ProductController::class,'create'])->name('products.create');
+Route::post('/store',[ProductController::class,'store'])->name('products.store');
+Route::get('/edit/{id}',[ProductController::class,'update'])->name('products.update');
+Route::get('/destroy/{id}',[ProductController::class,'destroy'])->name('products.destroy');
 });
     
 

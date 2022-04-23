@@ -21,23 +21,23 @@
     <!-- /.content-header -->
 
 <div class="card">
+  <div class="container">
     <div class="head bg-muted">
         <div class="card-body ">
             <div class="row">
                 <div class="col-md-12  d-flex justify-content-between align-items-center">
-                  @if(isset($editColor))
-                  <h5 class="display-5">Edit Color</h5>
+                  @if(isset($editProduct))
+                  <h5 class="display-5">Edit Product</h5>
                     @else
-                    <h5 class="display-5">Create Color</h5>
+                    <h5 class="display-5">Create Product</h5>
                   @endif
-                  <a href="{{route('colors.view')}}" class="btn btn-warning text-dark"> <i class="fa fa-list"></i> Color List</a>
+                  <a href="{{route('products.view')}}" class="btn btn-warning text-dark"> <i class="fa fa-list"></i> Product List</a>
                 </div>
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-6 offset-3 pt-3">
-            <form action="{{(@$editColor)?route('colors.update',$editColor->id):route('colors.store')}} " method="POST" enctype="multipart/form-data">
+
+            <form action="{{(@$editProduct)?route('products.update',$editProduct->id):route('products.store')}} " method="POST" enctype="multipart/form-data">
                 @csrf
                 @if ($errors->any())
                     <div class="alert alert-danger">
@@ -48,23 +48,80 @@
                         </ul>
                     </div>
                 @endif
-                <div class="form-group">
-                    <label for="my-input">Color</label>
-                    <input type="text" class="form-control" name="name" id="" value="{{@$editColor->name}}" type="text" placeholder="Add Color Name" required>
-                    <font style="color:red">{{($errors->has('name'))?($errors->first('name')):''}} </font>
-                </div>
-                <div class="form-group">
-                  <button type="submit" id="button" class="btn btn-success">{{(@$editColor)?"Update":"Submit"}} </button>
-                </div>
+      
+                <!-- row start -->
+              <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label for="my-input">Category</label>
+                      <select name="category_id" id="" class="form-control">
+                        <option value="" selected>Select Category</option>
+                        @foreach($categorys as $category)
+                        <option value="{{$category->id}}">{{$category->name}} </option>
+                        @endforeach
+                      </select>
+                      <font style="color:red">{{($errors->has('category_id'))?($errors->first('category_id')):''}} </font>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label for="my-input">Brand</label>
+                      <select name="brand_id" id="" class="form-control">
+                        <option value="" selected>Select Brand</option>
+                        @foreach($brands as $brand)
+                        <option value="{{$brand->id}}">{{$brand->name}} </option>
+                        @endforeach
+                      </select>
+                      <font style="color:red">{{($errors->has('brand_id'))?($errors->first('brand_id')):''}} </font>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label for="my-input">Size</label>
+                      <select name="size_id" id="" class="form-control">
+                        <option value="" selected>Select Size</option>
+                        @foreach($sizes as $size)
+                        <option value="{{$size->id}}">{{$size->name}} </option>
+                        @endforeach
+                      </select>
+                      <font style="color:red">{{($errors->has('size_id'))?($errors->first('size_id')):''}} </font>
+                    </div>
+                  </div>
+              </div>
+              <!-- row end -->
+              <!-- row start -->
+              <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label for="my-input">Color</label>
+                      <select name="color_id[]" id="" class="form-control select2" multiple>
+                        @foreach($colors as $color)
+                        <option value="{{$color->id}}">{{$color->name}} </option>
+                        @endforeach
+                      </select>
+                      <font style="color:red">{{($errors->has('color_id'))?($errors->first('color_id')):''}} </font>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="my-input">Product Name</label>
+                        <input type="text" class="form-control" name="name" id="" value="{{@$editProduct->name}}" type="text" placeholder="Enter Product Name" required>
+                        <font style="color:red">{{($errors->has('name'))?($errors->first('name')):''}} </font>
+                      </div>
+                  </div>
+              </div>
+              <div class="form-group">
+                <button type="submit" id="button" class="btn btn-success">{{(@$editProduct)?"Update":"Submit"}} </button>
+              </div>
 
             </form>
-        </div>
+
     </div>
+    <!-- container end -->
+  </div>
+  {{-- card end --}}
+
 
 </div>
-{{-- card end --}}
-
-
-  </div>
  <!-- Content Wrapper. Contains page content end-->
 @endsection

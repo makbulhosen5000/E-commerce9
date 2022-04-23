@@ -36,9 +36,6 @@
         <div class="col-md-6 offset-3 pt-3">
             <form action="{{route('logos.store')}} " method="POST" enctype="multipart/form-data">
                 @csrf
-                @if(Session::has('success'))
-                <div class="btn btn-success">{{Session::get('success')}} </div>
-                @endif
                 @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul>

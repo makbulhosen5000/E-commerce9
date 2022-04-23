@@ -54,7 +54,7 @@
                     <font style="color:red">{{($errors->has('name'))?($errors->first('name')):''}} </font>
                 </div>
                 <div class="form-group">
-                  <button type="submit" id="button" class="btn btn-success">{{(@$editData)?"Update":"Submit"}} </button>
+                  <button type="submit" id="button" class="btn btn-success">{{(@$editCategory)?"Update":"Submit"}} </button>
                 </div>
 
             </form>

@@ -46,7 +46,7 @@
                 </div>
                @endif
                 <div class="form-group">
-                    <img src="{{asset('upload/user_images/'.$data->image)}}" id="image" style="width:364px;height:200px">
+                    <img src="{{asset('public/upload/images/'.$data->image)}}" id="image" style="width:364px;height:200px">
                     <input id="my-input" class="form-control" type="file" name="image" id="file" onchange="showImage(this,'image')" value=''>
 
                 </div>
