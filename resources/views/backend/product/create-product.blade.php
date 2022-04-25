@@ -54,7 +54,7 @@
                   <div class="col-md-4">
                     <div class="form-group">
                       <label for="my-input">Category</label>
-                      <select name="category_id" id="" class="form-control"required>
+                      <select name="category_id" id="" class="form-control" required>
                         <option value="" selected>Select Category</option>
                         @foreach($categorys as $category)
                         <option value="{{$category->id}}">{{$category->name}} </option>
@@ -78,8 +78,7 @@
                   <div class="col-md-4">
                     <div class="form-group">
                       <label for="my-input">Size</label>
-                      <select name="size_id" id="" class="form-control" required>
-                        <option value="" selected>Select Size</option>
+                      <select name="size_id[]" id="" class="form-control select2" multiple required>
                         @foreach($sizes as $size)
                         <option value="{{$size->id}}">{{$size->name}} </option>
                         @endforeach
@@ -103,23 +102,19 @@
                     </div>
                   </div>
                   <div class="col-md-4">
-                    <div class="form-group">
-                      <label for="my-input">Size</label>
-                      <select name="size_id[]" id="" class="form-control select2" multiple required>
-                        @foreach($sizes as $size)
-                        <option value="{{$size->id}}">{{$size->name}} </option>
-                        @endforeach
-                      </select>
-                      <font style="color:red">{{($errors->has('size_id'))?($errors->first('size_id')):''}} </font>
-                    </div>
-                  </div>
-                  <div class="col-md-4">
                       <div class="form-group">
                         <label for="my-input">Product Name</label>
                         <input type="text" class="form-control" name="name" id="" value="{{@$editProduct->name}}" type="text" placeholder="Enter Product Name" required>
                         <font style="color:red">{{($errors->has('name'))?($errors->first('name')):''}} </font>
                       </div>
                   </div>
+                  <div class="col-md-4">
+                        <div class="form-group">
+                        <label>Product Price</label>
+                        <input class="form-control-sm" type="number" style="width: 100%;" name="price" value="{{@$editProduct->price}}" required />
+                        <font style="color:red">{{($errors->has('price'))?($errors->first('price')):''}} </font>
+                        </div>
+                     </div>
                 </div>
                 <!-- row end -->
                 <!-- row start -->
@@ -145,21 +140,15 @@
                 <!-- row end -->
                  <!-- row start -->
                  <div class="row">
-                    <div class="col-md-3">
-                        <div class="form-group">
-                        <label>Product Price</label>
-                        <input class="form-control-sm" type="number" style="width: 100%;" name="price" value="{{@$productsEdit->price}}" required />
-                        <font style="color:red">{{($errors->has('price'))?($errors->first('price')):''}} </font>
-                        </div>
-                     </div>
+                 
                      <div class="col-md-6">
                         <div class="form-group">
                         <label>Image</label>
-                        <img src="{{(!empty($productsEdit->image))?url('public/upload/images/'.$productsEdit->image):url('public/upload/images/not_found_img.jpg')}}" id="image" style="width:445px;height:200px">
+                        <img src="{{(!empty($editProduct->image))?url('public/upload/images/'.$editProduct->image):url('public/upload/images/not_found_img.jpg')}}" id="image" style="width:490px;height:200px">
                         <input id="my-input" class="form-control" type="file" name="image" id="file" onchange="showImage(this,'image')" value=''>
                         </div>
                      </div>
-                     <div class="col-md-3">
+                     <div class="col-md-6">
                         <div class="form-group">
                         <label>Sub Image</label>
                         <input id="my-input" class="form-control" type="file" name="sub_image[]" multiple>

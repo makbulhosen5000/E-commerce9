@@ -27,7 +27,7 @@
                   <div class="row">
                       <div class="col-md-12  d-flex justify-content-between align-items-center">
                           <h5 class="display-5">Product List</h5>
-                        <a href="{{route('products.create')}}" class="btn btn-warning text-dark"><i class="fa fa-plus-circle"></i>Create Produc</a>
+                        <a href="{{route('products.create')}}" class="btn btn-warning text-dark"><i class="fa fa-plus-circle"></i>Create Product</a>
                       </div>
                   </div>
               </div>

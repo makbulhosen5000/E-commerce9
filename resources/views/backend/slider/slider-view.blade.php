@@ -51,7 +51,7 @@
                         <td>{{$item->id}}</td>
                         <td>{{$item->sort_title}}</td>
                         <td>{{$item->long_title}}</td>
-                        <td><img src="{{asset('upload/user_images/'.$item->image)}}" width="60px";height='60px' alt=""></td>
+                        <td><img src="{{asset('public/images/slider_images/'.$item->image)}}" width="60px";height='60px' alt=""></td>
                         <td>
                             <a href="{{route('sliders.edit',$item->id)}}" class="btn btn-warning" title="Edit"><i class="fa fa-user-edit"></i></a>
                             <a href="{{route('sliders.destroy',$item->id)}} " id="delete" class="btn btn-danger" title="Delete"><i class="fa fa-trash"></i></a>

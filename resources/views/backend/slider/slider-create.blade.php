@@ -35,6 +35,7 @@
     <div class="row">
         <div class="col-md-6 offset-3 pt-3">
             <form action="{{route('sliders.store')}} " method="POST" enctype="multipart/form-data">
+              @csrf
                 @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul>
@@ -56,8 +57,8 @@
                 </div>
                 <div class="form-group">
                     <label for="my-input">Image</label>
-                    <input id="my-input" class="form-control" type="file" name="image" required>
-                       {{-- <font style="color:red">{{($errors->has('password'))?($errors->first('password')):''}} </font> --}}
+                  <img src="{{asset('public/images/slider_images')}}" id="image" style="width:540px;height:200px">
+                  <input id="my-input" class="form-control" type="file" name="image" id="file" onchange="showImage(this,'image')" value=''>
                 </div>
                 <div class="form-group">
                   <button type="submit" id="button" class="btn btn-success">Submit</button>

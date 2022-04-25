@@ -35,7 +35,8 @@
     <div class="row">
         <div class="col-md-6 offset-3 pt-3">
             <form action="{{route('sliders.update',$data->id)}} " method="POST" enctype="multipart/form-data" >
-                @if ($errors->any())
+              @csrf
+               @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>
                         @foreach ($errors->all() as $error)
@@ -56,7 +57,7 @@
             </div>
             <div class="form-group">
               <label>Image</label>
-              <img src="{{(!empty($data->image))?url('public/upload/images/'.$data->image):url('public/upload/images/not_found_img.jpg')}}" id="image" style="width:445px;height:200px">
+              <img src="{{(!empty($data->image))?url('public/images/slider_images/'.$data->image):url('public/images/not_found_img.jpg')}}" id="image" style="width:540px;height:200px">
               <input id="my-input" class="form-control" type="file" name="image" id="file" onchange="showImage(this,'image')" value=''>
             </div>
                 <div class="form-group">

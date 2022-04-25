@@ -35,15 +35,25 @@ class ProductController extends Controller
      //__category store function is here__//
     public function store(ProductRequest $request)
     {
-        $validatedData = $request->validate([
-            'name' => 'required|unique:colors,name',
-
-        ]);
-       $storeColor=new Color();
-       $storeColor->name=$request->name;
-       $storeColor->created_by=Auth::user()->id;
-       $storeColor->save();
-       Session::flash('success','Color Created successfully');
+        DB::transaction(function ($request) {
+            $validatedData = $request->validate([
+                'name' => 'required|unique:products,name',
+                'color_id' => 'required',
+                'size_id' => 'required'
+            ]);
+        });
+       
+       $storeProduct=new Color();
+       $storeProduct->category_id=$request->category_id;
+       $storeProduct->brand_id=$request->brand_id;
+       $storeProduct->size_id=$request->size_id;
+       $storeProduct->color_id=$request->color_id;
+       $storeProduct->name=$request->name;
+       $storeProduct->short_desc=$request->short_desc;
+       $storeProduct->long_desc=$request->long_desc;
+       $storeProduct->created_by=Auth::user()->id;
+       $storeProduct->save();
+       Session::flash('success','Product Created successfully');
        return redirect()->back();
     }
 
@@ -75,10 +85,15 @@ class ProductController extends Controller
     }
 
     //__category delete function is here__//
-    public function destroy($id)
-    {
-       $deleteColor=Color::find($id);
-       $deleteColor->delete();
-      return redirect()->route('colors.view');
+    //delete function is here...........................
+    public function destroy(Request $request, $id)
+    { 
+       $delete=Product::find($request->id);
+       if(file_exists('public/image/product_images/'.$delete->image)AND ! empty($delete->image))
+       {
+        unlink('public/image/product_images/'.$delete->image);
+       }
+       $delete->delete();
+       return redirect()->route('sliders.view');
     }
 }
