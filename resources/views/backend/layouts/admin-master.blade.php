@@ -32,7 +32,11 @@
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   <!-- tostr massage -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-  {{-- sweet alert --}}
+  <!-- Select2 -->
+  <link rel="stylesheet" href="{{asset('public/backend')}}/plugins/select2/css/select2.min.css">
+  <link rel="stylesheet" href="{{asset('public/backend')}}/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+  
+<!-- sweetalert -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
   <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
   <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
@@ -145,6 +149,18 @@
 <script src="{{asset('public')}}/backend/dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('public')}}/backend/dist/js/demo.js"></script>
+<!-- Select2 -->
+<script src="{{asset('public')}}/backend/plugins/select2/js/select2.full.min.js"></script>
+<script>
+   $(function(){
+       //Initialize Select2 Elements
+    $('.select2').select2()
+      //Initialize Select2 Elements
+      $('.select2bs4').select2({
+      theme: 'bootstrap4'
+    })
+   })
+</script>
 <!-- DataTables -->
 <script src="{{asset('public')}}/backend/plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="{{asset('public')}}/backend/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>

@@ -54,7 +54,7 @@
                   <div class="col-md-4">
                     <div class="form-group">
                       <label for="my-input">Category</label>
-                      <select name="category_id" id="" class="form-control">
+                      <select name="category_id" id="" class="form-control"required>
                         <option value="" selected>Select Category</option>
                         @foreach($categorys as $category)
                         <option value="{{$category->id}}">{{$category->name}} </option>
@@ -66,7 +66,7 @@
                   <div class="col-md-4">
                     <div class="form-group">
                       <label for="my-input">Brand</label>
-                      <select name="brand_id" id="" class="form-control">
+                      <select name="brand_id" id="" class="form-control" required>
                         <option value="" selected>Select Brand</option>
                         @foreach($brands as $brand)
                         <option value="{{$brand->id}}">{{$brand->name}} </option>
@@ -78,7 +78,7 @@
                   <div class="col-md-4">
                     <div class="form-group">
                       <label for="my-input">Size</label>
-                      <select name="size_id" id="" class="form-control">
+                      <select name="size_id" id="" class="form-control" required>
                         <option value="" selected>Select Size</option>
                         @foreach($sizes as $size)
                         <option value="{{$size->id}}">{{$size->name}} </option>
@@ -87,19 +87,30 @@
                       <font style="color:red">{{($errors->has('size_id'))?($errors->first('size_id')):''}} </font>
                     </div>
                   </div>
-              </div>
-              <!-- row end -->
-              <!-- row start -->
-              <div class="row">
+                </div>
+                <!-- row end -->
+                <!-- row start -->
+                <div class="row"> 
                   <div class="col-md-4">
                     <div class="form-group">
                       <label for="my-input">Color</label>
-                      <select name="color_id[]" id="" class="form-control select2" multiple>
+                      <select name="color_id[]" id="" class="form-control select2" multiple required>
                         @foreach($colors as $color)
                         <option value="{{$color->id}}">{{$color->name}} </option>
                         @endforeach
                       </select>
                       <font style="color:red">{{($errors->has('color_id'))?($errors->first('color_id')):''}} </font>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label for="my-input">Size</label>
+                      <select name="size_id[]" id="" class="form-control select2" multiple required>
+                        @foreach($sizes as $size)
+                        <option value="{{$size->id}}">{{$size->name}} </option>
+                        @endforeach
+                      </select>
+                      <font style="color:red">{{($errors->has('size_id'))?($errors->first('size_id')):''}} </font>
                     </div>
                   </div>
                   <div class="col-md-4">
@@ -109,7 +120,53 @@
                         <font style="color:red">{{($errors->has('name'))?($errors->first('name')):''}} </font>
                       </div>
                   </div>
-              </div>
+                </div>
+                <!-- row end -->
+                <!-- row start -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Short Description</label>
+                             <textarea class="form-control" name="short_desc" id="" placeholder="Enter Your Short Description" placeholder="Please Enter Short Description for product" required></textarea>
+                            <font style="color:red">{{($errors->has('short_desc'))?($errors->first('short_desc')):''}} </font>
+                        </div>
+                    </div>
+                </div>
+                <!-- row end -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Long Description</label>
+                             <textarea class="form-control" name="long_desc" id="" rows="6" placeholder="Enter Your Short Description" placeholder="Please Enter Short Description for product" required></textarea>
+                            <font style="color:red">{{($errors->has('short_desc'))?($errors->first('short_desc')):''}} </font>
+                        </div>
+                    </div>
+                </div>
+                <!-- row end -->
+                 <!-- row start -->
+                 <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                        <label>Product Price</label>
+                        <input class="form-control-sm" type="number" style="width: 100%;" name="price" value="{{@$productsEdit->price}}" required />
+                        <font style="color:red">{{($errors->has('price'))?($errors->first('price')):''}} </font>
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="form-group">
+                        <label>Image</label>
+                        <img src="{{(!empty($productsEdit->image))?url('public/upload/images/'.$productsEdit->image):url('public/upload/images/not_found_img.jpg')}}" id="image" style="width:445px;height:200px">
+                        <input id="my-input" class="form-control" type="file" name="image" id="file" onchange="showImage(this,'image')" value=''>
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group">
+                        <label>Sub Image</label>
+                        <input id="my-input" class="form-control" type="file" name="sub_image[]" multiple>
+                        </div>
+                     </div>
+                </div>
+                <!-- row end -->
               <div class="form-group">
                 <button type="submit" id="button" class="btn btn-success">{{(@$editProduct)?"Update":"Submit"}} </button>
               </div>

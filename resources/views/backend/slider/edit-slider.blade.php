@@ -54,11 +54,11 @@
                 <input id="my-input" class="form-control" type="text" name="long_title" value='{{$data->long_title}}'>
 
             </div>
-                <div class="form-group">
-                    <label for="my-input">Image</label>
-                    <input id="my-input" class="form-control" type="file" name="image" value='{{$data->image}}'>
-
-                </div>
+            <div class="form-group">
+              <label>Image</label>
+              <img src="{{(!empty($data->image))?url('public/upload/images/'.$data->image):url('public/upload/images/not_found_img.jpg')}}" id="image" style="width:445px;height:200px">
+              <input id="my-input" class="form-control" type="file" name="image" id="file" onchange="showImage(this,'image')" value=''>
+            </div>
                 <div class="form-group">
                   <button type="submit" class="btn btn-primary">Updated</button>
                 </div>
