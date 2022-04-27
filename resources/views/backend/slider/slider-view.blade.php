@@ -46,7 +46,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($user as $item)
+                    @foreach ($allData as $item)
                     <tr>
                         <td>{{$item->id}}</td>
                         <td>{{$item->sort_title}}</td>

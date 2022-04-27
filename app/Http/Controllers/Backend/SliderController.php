@@ -10,20 +10,20 @@ use Auth;
 
 class SliderController extends Controller
 {
-    //view function is here......................................
+    //__ view function is here __//
     public function index()
     {
-        $user=Slider::all();
-        return view('backend.slider.slider-view', compact('user'));
+        $allData=Slider::all();
+        return view('backend.slider.slider-view', compact('allData'));
     }
 
-      //Create function is here......................................
+      //__ Create function is here __//
       public function create()
       {
           return view('backend.slider.slider-create');
       }
 
-     //Store function is here..........................
+     //__ Store function is here __//
      public function store(Request $request)
      {
          $validatedData = $request->validate([
@@ -31,72 +31,67 @@ class SliderController extends Controller
              'sort_title' => 'required',
              'long_title' => 'required',
          ]);
-        $userData=new Slider();
-        $userData->created_by=Auth::user()->id;
-        $userData->sort_title=$request->sort_title;
-        $userData->long_title=$request->long_title;
-        $userData->created_by=$request->created_by;
-        $userData->updated_by=$request->updated_by;
+        $storeData=new Slider();
+        $storeData->created_by=Auth::user()->id;
+        $storeData->sort_title=$request->sort_title;
+        $storeData->long_title=$request->long_title;
+        $storeData->created_by=$request->created_by;
+        $storeData->updated_by=$request->updated_by;
          if($request->hasFile('image')){
              $file=$request->file('image');
              $extension=$file->getClientOriginalExtension();
              $newImage=time().'.'.$extension;
              $file->move('public/images/slider_images/',$newImage);
-             $userData->image=$newImage;
+             $storeData->image=$newImage;
          }else{
              return $request;
-             $userData->image='';
+             $storeData->image='';
          }
-        $userData->save();
+        $storeData->save();
         Session::flash('success','Slider Created successfully');
         return redirect()->back();
      }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //
     }
-    //edit function is here.......................
+    //__ edit function is here __//
     public function edit($id)
     {
-        $data=slider::find($id);
-        return view('backend.slider.edit-slider',compact('data'));
+        $editData=slider::find($id);
+        return view('backend.slider.slider-create',compact('editData'));
+        // edit
     }
 
-    //update function is here.......................
+    //__ update function is here __//
     public function update(Request $request, $id)
     {
-        $update=Slider::find($id);
-        $update->updated_by=Auth::user()->id;
-        $update->sort_title=$request->sort_title;
-        $update->long_title=$request->long_title;
+        $updateData=Slider::find($id);
+        $updateData->updated_by=Auth::user()->id;
+        $updateData->sort_title=$request->sort_title;
+        $updateData->long_title=$request->long_title;
         if($request->hasFile('image')){
             $file=$request->file('image');
             $extension=$file->getClientOriginalExtension();
             $myImage=time().'.'.$extension;
             $file->move('public/images/slider_images/',$myImage);
-            $update->image=$myImage;
+            $updateData->image=$myImage;
         }
-        $update->save();
+        $updateData->save();
         Session::flash('success','Slider Updated successfully');
        return redirect()->back();
     }
 
-    //delete function is here...........................
+    //__delete function is here __//
     public function destroy(Request $request, $id)
     { 
-       $slider=Slider::find($request->id);
-       if(file_exists('public/images/slider_images/'.$slider->image)AND ! empty($slider->image))
+       $deleteData=Slider::find($request->id);
+       if(file_exists('public/images/slider_images/'.$deleteData->image)AND ! empty($slider->image))
        {
-        unlink('public/images/slider_images/'.$slider->image);
+        unlink('public/images/slider_images/'.$deleteData->image);
        }
-       $slider->delete();
+       $deleteData->delete();
        return redirect()->route('sliders.view');
     }
 }

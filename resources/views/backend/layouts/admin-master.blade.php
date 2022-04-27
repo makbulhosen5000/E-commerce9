@@ -190,6 +190,7 @@
     toastr.success("{{Session::get('success')}}");
     @endif
 </script>
+
   <script>
       $(function(){
           $(document).on('click','#delete',function(e){

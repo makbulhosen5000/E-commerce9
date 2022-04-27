@@ -132,7 +132,7 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <label>Long Description</label>
-                             <textarea class="form-control" name="long_desc" id="" rows="6" placeholder="Enter Your Short Description" placeholder="Please Enter Short Description for product" required></textarea>
+                             <textarea class="form-control" name="long_desc" id="" rows="6" placeholder="Enter Your Short Description" placeholder="Please Enter Short Description for product"></textarea>
                             <font style="color:red">{{($errors->has('short_desc'))?($errors->first('short_desc')):''}} </font>
                         </div>
                     </div>
@@ -144,7 +144,7 @@
                      <div class="col-md-6">
                         <div class="form-group">
                         <label>Image</label>
-                        <img src="{{(!empty($editProduct->image))?url('public/upload/images/'.$editProduct->image):url('public/upload/images/not_found_img.jpg')}}" id="image" style="width:490px;height:200px">
+                        <img src="{{(!empty($editProduct->image))?url('public/images/'.$editProduct->image):url('public/images/not_found_img.png')}}" id="image" style="width:400px;height:300px">
                         <input id="my-input" class="form-control" type="file" name="image" id="file" onchange="showImage(this,'image')" value=''>
                         </div>
                      </div>
