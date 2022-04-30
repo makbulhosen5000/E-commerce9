@@ -15,6 +15,8 @@ use App\Models\Size;
 use Illuminate\Http\Request;
 use DB;
 use Auth;
+use Session;
+
 class ProductController extends Controller
 {
     //__category view function is here__//
@@ -28,7 +30,7 @@ class ProductController extends Controller
        //__category create function is here__//
       public function create()
       {
-          $data['categorys']=Category::all();
+          $data['categories']=Category::all();
           $data['brands']=Brand::all();
           $data['colors']=Color::all();
           $data['sizes']=Size::all();
@@ -36,73 +38,70 @@ class ProductController extends Controller
       }
 
      //__category store function is here__//
-    public function store(ProductRequest $request)
-    {
-        DB::transaction(function ($request) {
-            $validatedData = $request->validate([
-                'name' => 'required|unique:products,name',
-                'color_id' => 'required',
-                'size_id' => 'required',
-                'price' => 'required',
-                'image' => 'required'
-            ]);
-        });
-       
-       $storeData=new Color();
-       $storeData->category_id=$request->category_id;
-       $storeData->brand_id=$request->brand_id;
-       $storeData->size_id=$request->size_id;
-       $storeData->color_id=$request->color_id;
-       $storeData->name=$request->name;
-       $storeData->price=$request->price;
-       $storeData->short_desc=$request->short_desc;
-       $storeData->long_desc=$request->long_desc;
-       $storeData->created_by=Auth::user()->id;
-       if($request->hasFile('image')){
-        $file=$request->file('image');
-        $extension=$file->getClientOriginalExtension();
-        $myImage=time().'.'.$extension;
-        $file->move('public/images/product_images/',$myImage);
-        $storeData->image=$myImage;
-    }
-      if($storeData->save()){
-            $files=$request->sub_image;
-            if(!empty($files)){
-                foreach($files as $file){
-                    $imgName=date('YmdHi').$file->getClientOriginalName();
-                    $file->move('public/images/product_sub_images',$imgName);
-                    $subimage['sub_image']=$imgName;
-                    $subimage=new ProductSubImage();
-                    $subimage->product_id=$storeData->id;
-                    $subimage->sub_image=$imgName;
-                    $subimage->save();
-                }
-            }
-            $colors=$request->color_id;
-            if(!empty($colors)){
-                foreach($colors as $color){
-                    $myColor=new ProductColor();
-                    $myColor->product_id=$storeData->id;
-                    $myColor->color_id=$color;
-                    $myColor->save();
-                }
-            }
-            $sizes=$request->size_id;
-            if(!empty($sizes)){
-                foreach($sizes as $size){
-                    $mySize=new ProductSize();
-                    $mySize->product_id=$storeData->id;
-                    $mySize->size_id=$size;
-                    $mySize->save();
-                }
-            }
-       }else{
-           return redirect()->back()->with('error','Data Not Sent');
-       }
-       Session::flash('success','Product Created successfully');
-       return redirect()->back();
-    }
+   //Store function is here..........................
+   public function store(Request $request)
+   {
+       DB::transaction(function () use($request) {
+           $validatedData = $request->validate([
+               'name' => 'required|unique:products,name',
+               'color_id' => 'required',
+               'brand_id' => 'required',
+               'price' => 'required',
 
+           ]);
+       });
+
+      $storeData=new Product();
+      $storeData->category_id=$request->category_id;
+      $storeData->brand_id=$request->brand_id;
+      $storeData->name=$request->name;
+      $storeData->short_desc=$request->short_desc;
+      $storeData->long_desc=$request->long_desc;
+      $storeData->price=$request->price;
+      $img=$request->file('image');
+      if($img){
+          $imgName=date('YmdHi').$img->getClientOriginalName();
+          $img->move('public/images/product_images/',$imgName);
+          $storeData['image']=$imgName;
+      }
+       if($storeData->save()){
+           $files=$request->sub_image;
+           if(!empty($files)){
+               foreach($files as $file){
+                   $imgName=date('YmdHi').$file->getClientOriginalName();
+                   $file->move('public/images/product_sub_images',$imgName);
+                   $subimage['sub_image']=$imgName;
+                   $subimage=new ProductSubImage();
+                   $subimage->product_id=$storeData->id;
+                   $subimage->sub_image=$imgName;
+                   $subimage->save();
+               }
+           }
+           $colors=$request->color_id;
+           if(!empty($colors)){
+               foreach($colors as $color){
+                   $myColor=new ProductColor();
+                   $myColor->product_id=$storeData->id;
+                   $myColor->color_id=$color;
+                   $myColor->save();
+               }
+           }
+           $sizes=$request->size_id;
+           if(!empty($sizes)){
+               foreach($sizes as $size){
+                   $mySize=new ProductSize();
+                   $mySize->product_id=$storeData->id;
+                   $mySize->size_id=$size;
+                   $mySize->save();
+               }
+           }
+      }else{
+          return redirect()->back()->with('error','Data Not Sent');
+      }
+
+      Session::flash('success','Product Created successfully');
+      return redirect()->back();
+   }
     /**
      * Display the specified resource.
      *
@@ -116,36 +115,101 @@ class ProductController extends Controller
     //edit function is here.......................
     public function edit($id)
     {
-        $editProduct=Product::find($id);
-        return view('backend.product.create-product',compact('editProduct'));
+        $data['editData']=Product::find($id);
+        $data['categories']=Category::all();
+        $data['brands']=Brand::all();
+        $data['colors']=Color::all();
+        $data['sizes']=Size::all();
+        $data['color_array'] = ProductColor::select('color_id')->where('product_id',$data['editData']->id)->orderBy('id','asc')->get()->toArray();
+        $data['size_array'] = ProductSize::select('size_id')->where('product_id',$data['editData']->id)->orderBy('id','asc')->get()->toArray();
+        return view('backend.product.create-product',$data);
     } 
      //__category update function is here__//
     public function update(ProductRequest $request, $id)
     {
-        $updateData=Color::find($id);
-        $updateData->category_id=$request->category_id;
-        $updateData->brand_id=$request->brand_id;
-        $updateData->size_id=$request->size_id;
-        $updateData->color_id=$request->color_id;
-        $updateData->name=$request->name;
-        $updateData->price=$request->price;
-        $updateData->short_desc=$request->short_desc;
-        $updateData->long_desc=$request->long_desc;
-        $updateData->created_by=Auth::user()->id;
-        if($request->hasFile('image')){
-         $file=$request->file('image');
-         $extension=$file->getClientOriginalExtension();
-         $myImage=time().'.'.$extension;
-         $file->move('public/images/product_images/',$myImage);
-         $updateData->image=$myImage;
-     }
-        $updateData->save();
-        Session::flash('success','Product Updated successfully');
+        DB::transaction(function () use($request,$id) {
+            $validatedData = $request->validate([
+                'color_id' => 'required',
+                'size_id' => 'required',
+ 
+            ]);
+        });
+ 
+       $updateData=Product::find($id);
+       $updateData->category_id=$request->category_id;
+       $updateData->brand_id=$request->brand_id;
+       $updateData->name=$request->name;
+       $updateData->short_desc=$request->short_desc;
+       $updateData->long_desc=$request->long_desc;
+       $updateData->price=$request->price;
+       $img=$request->file('image');
+       if($img){
+           $imgName=date('YmdHi').$img->getClientOriginalName();
+           $img->move('public/images/product_images/',$imgName);
+           if(file_exists('public/images/product_images/'.$updateData->image)AND ! empty($updateData->image))
+           {
+            unlink('public/images/product_images/'.$updateData->image);
+           }
+           $updateData['image']=$imgName;
+       }
+        if($updateData->save()){
+            $files=$request->sub_image;
+            if(!empty($files)){
+                $subimage=ProductSubImage::where('product_id',$id)->get()->toArray();
+                foreach($subimage as $value){
+                    if(!empty($value)){
+                        unlink('public/images/product_sub_images/'.$value['sub_image']);
+                    }
+                }
+                ProductSubImage::where('product_id',$id)->delete();
+            }
+                if(!empty($files)){
+                    foreach($files as $file){
+                $imgName=date('YmdHi').$file->getClientOriginalName();
+                $file->move('public/images/product_sub_images',$imgName);
+                $subimage['sub_image']=$imgName;
+                $subimage=new ProductSubImage();
+                $subimage->product_id=$updateData->id;
+                $subimage->sub_image=$imgName;
+                $subimage->save();
+                }
+            }
+            //__ color table data update __//
+            $colors=$request->color_id;
+            if(!empty($colors)){
+                ProductColor::where('product_id',$id)->delete();  
+            }
+            if(!empty($colors)){
+                foreach($colors as $color){
+                    $myColor=new ProductColor();
+                    $myColor->product_id=$updateData->id;
+                    $myColor->color_id=$color;
+                    $myColor->save();
+                }
+            }
+             //__ size table data update __//
+            $sizes=$request->size_id;
+            if(!empty($sizes)){
+                ProductSize::where('product_id',$id)->delete();  
+            }
+            if(!empty($sizes)){
+                foreach($sizes as $size){
+                    $mySize=new ProductSize();
+                    $mySize->product_id=$updateData->id;
+                    $mySize->size_id=$size;
+                    $mySize->save();
+                }
+            }
+       }else{
+           return redirect()->back()->with('error','Data Not Updated');
+       }
+ 
+       Session::flash('success','Product Updated Successfully');
        return redirect()->back();
     }
 
-    //__category delete function is here__//
-    //delete function is here...........................
+
+    //__ category delete function is here __//
     public function destroy(Request $request, $id)
     { 
        $delete=Product::find($request->id);

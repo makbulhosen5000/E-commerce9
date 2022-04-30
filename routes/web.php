@@ -153,12 +153,13 @@ Route::get('/edit/{id}',[SizeController::class,'edit'])->name('sizes.edit');
 Route::post('/update/{id}',[SizeController::class,'update'])->name('sizes.update');
 Route::get('/destroy/{id}',[SizeController::class,'destroy'])->name('sizes.destroy');
 });
-//Size routes start from here__//
+//product routes start from here__//
 Route::prefix('products')->group(function () {
 Route::get('/view',[ProductController::class,'index'])->name('products.view');
 Route::get('/create',[ProductController::class,'create'])->name('products.create');
 Route::post('/store',[ProductController::class,'store'])->name('products.store');
-Route::get('/edit/{id}',[ProductController::class,'update'])->name('products.update');
+Route::get('/edit/{id}',[ProductController::class,'edit'])->name('products.edit');
+Route::post('/updated/{id}',[ProductController::class,'update'])->name('products.update');
 Route::get('/destroy/{id}',[ProductController::class,'destroy'])->name('products.destroy');
 });
     

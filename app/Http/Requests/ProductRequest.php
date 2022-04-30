@@ -13,7 +13,7 @@ class ProductRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,8 +23,13 @@ class ProductRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            //
-        ];
+        if(isset($this->id)){
+            return [
+                'name' => 'required|unique:products,name,'.$this->id
+            ];
+        }
+            return [
+                'name' => 'required|unique:products'
+            ];
     }
 }
