@@ -49,6 +49,9 @@
                           </thead>
                           <tbody>
                               @foreach ($color as $key=> $item)
+                              @php 
+                              $count_color = App\Models\ProductColor::where('color_id',$item->id)->count();
+                              @endphp
                               <tr class="{{$item->id}}">
                                   <td>{{$key+1}}</td>
                                   <td>{{$item->name}}</td>
@@ -56,8 +59,9 @@
 
                                   <td>
                                       <a href="{{route('colors.edit',$item->id)}}" class="btn btn-warning" title="Edit"><i class="fa fa-user-edit"></i></a>
+                                      @if($count_color<1)
                                       <a href="{{route('colors.destroy',$item->id)}} " id="delete" class="btn btn-danger" title="Delete"><i class="fa fa-trash"></i></a>
-                                  
+                                      @endif
                                   </td>
                               </tr>
                               @endforeach

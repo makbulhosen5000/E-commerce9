@@ -61,7 +61,7 @@
                 </div>
                 <div class="form-group">
                     <label for="my-input">Image</label>
-                  <img src="{{(!empty($editData->image))?url('public/images/slider_images/'.$editData->image):url('public/images/slider_images/not_found_img.png')}}" id="image" style="width:540px;height:200px">
+                  <img src="{{(!empty($editData->image))?url('public/images/slider_images/'.$editData->image):url('public/images/not_found_img.png')}}" id="image" style="width:406px;height:200px">
                   <input id="my-input" class="form-control" type="file" name="image" id="file" onchange="showImage(this,'image')" value=''>
                 </div>
                 <div class="form-group">

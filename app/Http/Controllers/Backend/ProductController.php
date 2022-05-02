@@ -207,17 +207,33 @@ class ProductController extends Controller
        Session::flash('success','Product Updated Successfully');
        return redirect()->back();
     }
-
-
-    //__ category delete function is here __//
+    
+     //__ Product Details function is here __//
+    public function details($id){
+        $productDetails=Product::find($id);
+        return view('backend.product.details-product',compact('productDetails'));
+    }
+    //__ Product delete function is here __//
     public function destroy(Request $request, $id)
     { 
-       $delete=Product::find($request->id);
-       if(file_exists('public/images/product_images/'.$delete->image)AND ! empty($delete->image))
+       $product=Product::find($request->id);
+       if(file_exists('public/images/product_images/'.$product->image)AND ! empty($product->image))
        {
-        unlink('public/images/product_images/'.$delete->image);
+        unlink('public/images/product_images/'.$product->image);
        }
-       $delete->delete();
-       return redirect()->route('sliders.view');
+       $subImage = ProductSubImage::where('product_id',$product->id)->get()->toArray();
+       if(!empty($subImage)){
+           foreach($subImage as $value){
+               if(!empty($value)){
+                unlink('public/images/product_sub_images/'.$value['sub_image']);
+               }
+           }
+       }
+       ProductSubImage::where('product_id',$product->id)->delete();
+       ProductColor::where('product_id',$product->id)->delete();
+       ProductSize::where('product_id',$product->id)->delete();
+       $product->delete();
+       return redirect()->route('products.view')->with('success',"Product Deleted Successfully");
     }
+
 }

@@ -159,6 +159,7 @@ Route::get('/view',[ProductController::class,'index'])->name('products.view');
 Route::get('/create',[ProductController::class,'create'])->name('products.create');
 Route::post('/store',[ProductController::class,'store'])->name('products.store');
 Route::get('/edit/{id}',[ProductController::class,'edit'])->name('products.edit');
+Route::get('/details/{id}',[ProductController::class,'details'])->name('products.details');
 Route::post('/updated/{id}',[ProductController::class,'update'])->name('products.update');
 Route::get('/destroy/{id}',[ProductController::class,'destroy'])->name('products.destroy');
 });

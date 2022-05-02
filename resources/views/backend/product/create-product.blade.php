@@ -125,7 +125,7 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <label>Short Description</label>
-                             <textarea class="form-control" name="short_desc" id="" placeholder="Enter Your Short Description" placeholder="Please Enter Short Description for product" required>{{$editData->short_desc}}</textarea>
+                             <textarea class="form-control" name="short_desc" id="" placeholder="Enter Your Short Description" placeholder="Please Enter Short Description for product" required>{{@$editData->short_desc}}</textarea>
                             <font style="color:red">{{($errors->has('short_desc'))?($errors->first('short_desc')):''}} </font>
                         </div>
                     </div>
@@ -135,7 +135,7 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <label>Long Description</label>
-                             <textarea class="form-control" name="long_desc" id="" rows="6" placeholder="Enter Your Short Description" placeholder="Please Enter Short Description for product">{{$editData->long_desc}}</textarea>
+                             <textarea class="form-control" name="long_desc" id="" rows="6" placeholder="Enter Your Short Description" placeholder="Please Enter Short Description for product">{{@$editData->long_desc}}</textarea>
                             <font style="color:red">{{($errors->has('long_desc'))?($errors->first('long_desc')):''}} </font>
                         </div>
                     </div>

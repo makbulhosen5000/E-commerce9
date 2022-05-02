@@ -46,10 +46,10 @@
                                   <th>Brand</th>
                                   <th>Product Name</th>
                                   <th>Product Price</th>
-                                  <th>Short Description</th>
-                                  <th>Long Description</th>
+                                  <!-- <th>Short Description</th>
+                                  <th>Long Description</th> -->
                                   <th>Product Image</th>
-                                  <th>Action</th>
+                                  <th  width="17%">Action</th>
 
                               </tr>
                           </thead>
@@ -61,13 +61,13 @@
                                   <td>{{$item->brand->name}}</td>
                                   <td>{{$item->name}}</td>
                                   <td>{{$item->price}}</td>
-                                  <td>{{$item->short_desc}}</td>
-                                  <td>{{$item->long_desc}}</td>
+                                  <!-- <td>{{$item->short_desc}}</td>
+                                  <td>{{$item->long_desc}}</td> -->
                                   <td><img src="{{asset('public/images/product_images/'.$item->image)}}" width="60px";height='60px' alt=""></td>
-                                  <td>
-                                      <a href="{{route('products.edit',$item->id)}}" class="btn btn-warning" title="Edit"><i class="fa fa-user-edit"></i></a>
-                                      <a href="{{route('products.destroy',$item->id)}} " id="delete" class="btn btn-danger" title="Delete"><i class="fa fa-trash"></i></a>
-                                  
+                                  <td>                                     
+                                    <a href="{{route('products.edit',$item->id)}}" class="btn-sm btn-warning" title="Edit"><i class="fa fa-user-edit"></i></a>
+                                    <a href="{{route('products.details',$item->id)}}" class="btn-sm btn-success" title="Details"><i class="fa fa-eye"></i></a>
+                                    <a href="{{route('products.destroy',$item->id)}} " id="delete" class="btn-sm btn-danger" title="Delete"><i class="fa fa-trash"></i></a>
                                   </td>
                               </tr>
                               @endforeach
