@@ -50,7 +50,7 @@
                           <tbody>
                               @foreach ($brand as $key=> $item)
                               @php
-                              $count_brand= App\Models\Brand::where('brand_id',$item->id)->count();
+                              $count_brand= App\Models\Product::where('brand_id',$item->id)->count();
                               @endphp
                               <tr class="{{$item->id}}">
                                   <td>{{$key+1}}</td>

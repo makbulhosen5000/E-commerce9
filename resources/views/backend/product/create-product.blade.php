@@ -96,7 +96,7 @@
                   <div class="col-md-4">
                     <div class="form-group">
                       <label for="my-input">Color</label>
-                      <select name="color_id[]" id="" class="form-control select2" multiple required>
+                      <select name="color_id[]" id="" class="form-control select2" multiple>
                         @foreach($colors as $color)
                         <option value="{{$color->id}}" {{(@in_array(['color_id'=>$color->id],$color_array))?"selected":""}} >{{$color->name}} </option>
                         @endforeach

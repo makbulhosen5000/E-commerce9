@@ -44,7 +44,6 @@ class ProductController extends Controller
        DB::transaction(function () use($request) {
            $validatedData = $request->validate([
                'name' => 'required|unique:products,name',
-               'color_id' => 'required',
                'brand_id' => 'required',
                'price' => 'required',
 
@@ -55,6 +54,7 @@ class ProductController extends Controller
       $storeData->category_id=$request->category_id;
       $storeData->brand_id=$request->brand_id;
       $storeData->name=$request->name;
+      $storeData->slug=str_slug($request->name);
       $storeData->short_desc=$request->short_desc;
       $storeData->long_desc=$request->long_desc;
       $storeData->price=$request->price;
@@ -129,7 +129,6 @@ class ProductController extends Controller
     {
         DB::transaction(function () use($request,$id) {
             $validatedData = $request->validate([
-                'color_id' => 'required',
                 'size_id' => 'required',
  
             ]);
@@ -139,6 +138,7 @@ class ProductController extends Controller
        $updateData->category_id=$request->category_id;
        $updateData->brand_id=$request->brand_id;
        $updateData->name=$request->name;
+       $updateData->slug=str_slug($request->name);
        $updateData->short_desc=$request->short_desc;
        $updateData->long_desc=$request->long_desc;
        $updateData->price=$request->price;
