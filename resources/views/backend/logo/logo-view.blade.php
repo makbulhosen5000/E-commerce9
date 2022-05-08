@@ -47,7 +47,7 @@
                     @foreach ($user as $item)
                     <tr>
                         <td>{{$item->id}}</td>
-                        <td><img src="{{asset('public/upload/images/'.$item->image)}}" width="60px";height='60px' alt=""></td>
+                        <td><img src="{{asset('public/images/logo/'.$item->image)}}" width="60px";height='60px' alt=""></td>
                         <td>
                             <a href="{{route('logos.edit',$item->id)}}" class="btn btn-warning" title="Edit"><i class="fa fa-user-edit"></i></a>
                             <a href="{{route('logos.destroy',$item->id)}} " id="delete" class="btn btn-danger" title="Delete"><i class="fa fa-trash"></i></a>

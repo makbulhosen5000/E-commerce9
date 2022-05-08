@@ -38,7 +38,7 @@ class LogoController extends Controller
             $file=$request->file('image');
             $extension=$file->getClientOriginalExtension();
             $newImage=time().'.'.$extension;
-            $file->move('public/upload/images/',$newImage);
+            $file->move('public/images/logo/',$newImage);
             $userData->image=$newImage;
         }else{
             return $request;
@@ -76,7 +76,7 @@ class LogoController extends Controller
             $file=$request->file('image');
             $extension=$file->getClientOriginalExtension();
             $myImage=time().'.'.$extension;
-            $file->move('public/upload/images/',$myImage);
+            $file->move('public/images/logo/',$myImage);
             $update->image=$myImage;
         }
         $update->save();
@@ -89,6 +89,6 @@ class LogoController extends Controller
     {
         $data=Logo::find($id);
         $data->delete();
-       return redirect()->route('users.all');
+       return redirect()->route('logos.view');
     }
 }
