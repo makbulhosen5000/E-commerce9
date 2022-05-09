@@ -5,18 +5,22 @@
 			<!-- Topbar -->
 			<div class="top-bar">
 				<div class="content-topbar flex-sb-m h-full container">
-					<div class="left-top-bar">
+
+				    <div class="left-top-bar">
 						<div class="left-top-bar">
+							@foreach($contacts as $item)
 							<font size="3px" color="#fff">
-		                        01782283171 &nbsp;&nbsp;&nbsp;
-		                        mhakash5000@gmail.com
+							    {{$item->phone}} &nbsp;&nbsp;&nbsp;
+		                        {{$item->email}}
+
 		                    </font>
+							@endforeach
 						</div>
 					</div>
 
 					<div class="right-top-bar flex-w h-full">
 						<ul class="social">
-	                        <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
+	                        <li class="facebook"><a href=""><i class="fa fa-facebook"></i></a></li>
 	                        <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
 	                        <li class="google-plus"><a href="#"><i class="fa fa-google-plus"></i></a></li>
 	                        <li class="youtube"><a href="#"><i class="fa fa-youtube-play"></i></a></li>

@@ -21,26 +21,26 @@ class FrontendController extends Controller
     {
         $data['logo']=Logo::first();
         $data['sliders']=Slider::all();
-        $data['contacts']=Contact::first();
+        $data['contacts']=Contact::all();
         return view('frontend.layouts.home',$data);
     }
     public function AboutUs()
     {
         $data['logo']=Logo::first();
         $data['sliders']=Slider::all();
-        $data['contacts']=Contact::first();
+        $data['contacts']=Contact::all();
         $data['about_us']=About::first();
         return view('frontend.single-pages.about-us',$data);
     }
     public function ContactUs(){
         $data['logo']=Logo::first();
         $data['sliders']=Slider::all();
-        $data['contacts']=Contact::first();
+        $data['contacts']=Contact::all();
         return view('frontend.single-pages.contact-us',$data);
     }
     public function ShopingCart(){
     $data['logo']=Logo::first();
-    $data['contacts']=Contact::first();
+    $data['contacts']=Contact::all();
         return view('frontend.single-pages.shopping-cart',$data);
     }
     public function Store(Request $request)
