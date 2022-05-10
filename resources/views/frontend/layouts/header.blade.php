@@ -8,23 +8,21 @@
 
 				    <div class="left-top-bar">
 						<div class="left-top-bar">
-							@foreach($contacts as $item)
 							<font size="3px" color="#fff">
-							    {{$item->phone}} &nbsp;&nbsp;&nbsp;
-		                        {{$item->email}}
-
+							    {{$contacts->phone}} &nbsp;&nbsp;&nbsp;
+								{{$contacts->email}}
 		                    </font>
-							@endforeach
+
 						</div>
 					</div>
 
 					<div class="right-top-bar flex-w h-full">
 						<ul class="social">
-	                        <li class="facebook"><a href=""><i class="fa fa-facebook"></i></a></li>
-	                        <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
-	                        <li class="google-plus"><a href="#"><i class="fa fa-google-plus"></i></a></li>
-	                        <li class="youtube"><a href="#"><i class="fa fa-youtube-play"></i></a></li>
-	                        <li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>
+	                        <li class="facebook"><a href="{{$contacts->facebook}}"><i class="fa fa-facebook"></i></a></li>
+	                        <li class="twitter"><a href="{{$contacts->twitter}}"><i class="fa fa-twitter"></i></a></li>
+	                        <li class="google-plus"><a href="{{$contacts->google}}"><i class="fa fa-google-plus"></i></a></li>
+	                        <li class="youtube"><a href="{{$contacts->youtube}}"><i class="fa fa-youtube-play"></i></a></li>
+	                        <li class="linkedin"><a href="{{$contacts->linkedin}}"><i class="fa fa-linkedin"></i></a></li>
 	                    </ul>
 					</div>
 				</div>
@@ -77,7 +75,7 @@
 		<div class="wrap-header-mobile">
 			<!-- Logo moblie -->		
 			<div class="logo-mobile">
-				<a href="{{url('/')}}"><img src="{{asset('public/frontend')}}/images/logo/logo.png" alt="IMG-LOGO"></a>
+				<a href="{{url('/')}}"><img src="{{asset('public/images/logo/'.$logo->image)}}" alt="IMG-LOGO"></a>
 			</div>
 
 			<!-- Icon header -->

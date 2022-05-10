@@ -85,10 +85,16 @@ class LogoController extends Controller
     }
 
     //delete function is here...........................
-    public function destroy($id)
+    public function destroy(Request $request,$id)
     {
-        $data=Logo::find($id);
-        $data->delete();
+        $deleteData=Logo::find($request->id);
+        if(file_exists('public/images/logo/'.$deleteData->image)AND ! empty($deleteData->image))
+        {
+         unlink('public/images/logo/'.$deleteData->image);
+        }
+        $deleteData->delete();
+ 
        return redirect()->route('logos.view');
+
     }
 }
