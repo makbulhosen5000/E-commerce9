@@ -10,6 +10,7 @@ use App\Models\Contact;
 use App\Models\About;
 use App\Models\ContactUs;
 use App\Models\CountDownTimer;
+use App\Models\Product;
 use Session;
 use Mail;
 
@@ -22,8 +23,36 @@ class FrontendController extends Controller
         $data['logo']=Logo::first();
         $data['sliders']=Slider::all();
         $data['contacts']=Contact::first();
+        $data['categories']=Product::select('category_id')->groupBy('category_id')->get();
+        $data['brands']=Product::select('brand_id')->groupBy('brand_id')->get();
+        $data['products']=Product::orderBy('id','desc')->paginate(12);
         return view('frontend.layouts.home',$data);
     }
+    //__ ProductList function__ //
+    public function ProductList(){
+    $data['logo']=Logo::first();
+    $data['contacts']=Contact::first();
+    $data['categories']=Product::select('category_id')->groupBy('category_id')->get();
+    $data['brands']=Product::select('brand_id')->groupBy('brand_id')->get();
+    $data['products']=Product::orderBy('id','desc')->paginate(12);
+    return view('frontend.single-pages.product-list',$data);
+    }
+    //__ Category Wise Product function__ //
+    public function CategoryWiseProduct($category_id){
+    $data['logo']=Logo::first();
+    $data['contacts']=Contact::first();
+    $data['categories']=Product::select('category_id')->groupBy('category_id')->get();
+    $data['brands']=Product::select('brand_id')->groupBy('brand_id')->get();
+    $data['products']=Product::where('category_id',$category_id)->orderBy('id','desc')->get();
+    return view('frontend.single-pages.category-wise-product',$data);
+    }
+    //__ Shoping Cart function__ //
+    public function ShopingCart(){
+    $data['logo']=Logo::first();
+    $data['contacts']=Contact::first();
+    return view('frontend.single-pages.shopping-cart',$data);
+    }
+    //__ About Us function__ //
     public function AboutUs()
     {
         $data['logo']=Logo::first();
@@ -32,17 +61,14 @@ class FrontendController extends Controller
         $data['about_us']=About::first();
         return view('frontend.single-pages.about-us',$data);
     }
+       //__ Contact Us function__ //
     public function ContactUs(){
         $data['logo']=Logo::first();
         $data['sliders']=Slider::all();
         $data['contacts']=Contact::first();
         return view('frontend.single-pages.contact-us',$data);
     }
-    public function ShopingCart(){
-    $data['logo']=Logo::first();
-    $data['contacts']=Contact::first();
-        return view('frontend.single-pages.shopping-cart',$data);
-    }
+    //__ Store Contact Us function__ //
     public function Store(Request $request)
     {
         $contactUs=new ContactUs();
@@ -65,14 +91,13 @@ class FrontendController extends Controller
         Session::flash('success','Massage Sent Successfully');
         return redirect()->back();
     }
-
-    public function UserEmailView()
-    {
-        $mail['userEmail']=ContactUs::orderBy('id','desc')->get();
-        return view('frontend.Email.user-email-view',$mail);
-    }
-
-
+        //__ User Email function for Contact Us__ //
+        public function UserEmailView()
+        {
+            $mail['userEmail']=ContactUs::orderBy('id','desc')->get();
+            return view('frontend.Email.user-email-view',$mail);
+        }
+    //__ Contact Us Delete function__ //
     public function destroy($id)
     {
         $contactUs=ContactUs::find($id);
@@ -80,4 +105,6 @@ class FrontendController extends Controller
         return redirect()->back();
 
     }
+
+   
 }

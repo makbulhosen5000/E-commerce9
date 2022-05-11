@@ -8,7 +8,11 @@
 						Contact Us
 					</h4>
 					<p class="stext-107 cl7 hov-cl1 trans-04" style="font-size: 15px;">
-	                    Address: Bosila,Mohammadpur-Dhaka, &nbsp; Cell: 01989139570 , &nbsp; Email: mhakash5000@gmail.com
+	                    Address: {{$contacts->address}}
+						<br>
+						Cell: {{$contacts->phone}}
+						<br>
+						Email: {{$contacts->email}}
 	                </p>
 				</div>
 
@@ -18,11 +22,11 @@
 					</h4>
 
 					<ul class="social">
-                        <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li class="google-plus"><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                        <li class="youtube"><a href="#"><i class="fa fa-youtube-play"></i></a></li>
-                        <li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li class="facebook"><a href="{{$contacts->facebook}}"><i class="fa fa-facebook"></i></a></li>
+                        <li class="twitter"><a href="{{$contacts->twitter}}"><i class="fa fa-twitter"></i></a></li>
+                        <li class="google-plus"><a href="{{$contacts->google}}"><i class="fa fa-google-plus"></i></a></li>
+                        <li class="youtube"><a href="{{$contacts->youtube}}"><i class="fa fa-youtube-play"></i></a></li>
+                        <li class="linkedin"><a href="{{$contacts->linkedin}}"><i class="fa fa-linkedin"></i></a></li>
                     </ul>
 				</div>
 			</div>
