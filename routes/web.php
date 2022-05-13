@@ -43,6 +43,7 @@ Route::post('/contact-store',[FrontendController::class,'Store'])->name('contact
 Route::get('/shopping-cart',[FrontendController::class,'ShopingCart'])->name('shopping.cart');
 Route::get('/product-list',[FrontendController::class,'ProductList'])->name('product.list');
 Route::get('/product-category/{category_id}',[FrontendController::class,'CategoryWiseProduct'])->name('category.wise.product');
+Route::get('/product-brand/{category_id}',[FrontendController::class,'BrandWiseProduct'])->name('brand.wise.product');
 //__frontend page routes end from here__//
 
 //__backend page routes start from here__//

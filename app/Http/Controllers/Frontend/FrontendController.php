@@ -46,6 +46,16 @@ class FrontendController extends Controller
     $data['products']=Product::where('category_id',$category_id)->orderBy('id','desc')->get();
     return view('frontend.single-pages.category-wise-product',$data);
     }
+    //__ Category Wise Product function__ //
+    public function BrandWiseProduct($brand_id){
+    $data['logo']=Logo::first();
+    $data['contacts']=Contact::first();
+    $data['categories']=Product::select('category_id')->groupBy('category_id')->get();
+    $data['brands']=Product::select('brand_id')->groupBy('brand_id')->get();
+    $data['products']=Product::where('brand_id',$brand_id)->orderBy('id','desc')->get();
+    return view('frontend.single-pages.brand-wise-product',$data);
+    }
+
     //__ Shoping Cart function__ //
     public function ShopingCart(){
     $data['logo']=Logo::first();
