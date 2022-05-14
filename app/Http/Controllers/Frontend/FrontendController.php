@@ -46,7 +46,7 @@ class FrontendController extends Controller
     $data['products']=Product::where('category_id',$category_id)->orderBy('id','desc')->get();
     return view('frontend.single-pages.category-wise-product',$data);
     }
-    //__ Category Wise Product function__ //
+    //__ Brand Wise Product function__ //
     public function BrandWiseProduct($brand_id){
     $data['logo']=Logo::first();
     $data['contacts']=Contact::first();
@@ -54,6 +54,15 @@ class FrontendController extends Controller
     $data['brands']=Product::select('brand_id')->groupBy('brand_id')->get();
     $data['products']=Product::where('brand_id',$brand_id)->orderBy('id','desc')->get();
     return view('frontend.single-pages.brand-wise-product',$data);
+    }
+
+ 
+    //__ Product Details function__ //
+    public function ProductDetails(){
+    $data['logo']=Logo::first();
+    $data['contacts']=Contact::first();
+    $data['product']=Product::where('slug')->first();
+    return view('frontend.single-pages.product-details',$data);
     }
 
     //__ Shoping Cart function__ //
