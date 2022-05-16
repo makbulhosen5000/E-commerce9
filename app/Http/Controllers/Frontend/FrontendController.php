@@ -61,14 +61,13 @@ class FrontendController extends Controller
 
  
     //__ Product Details function__ //
-    public function ProductDetails(){
+    public function ProductDetails($slug){
     $data['logo']=Logo::first();
     $data['contacts']=Contact::first();
-    $data['product']=Product::where('slug')->first();
+    $data['product']=Product::where('slug',$slug)->first();
     $data['product_sub_images']=ProductSubImage::where('product_id',$data['product']->id)->get();
     $data['product_colors']=ProductColor::where('product_id',$data['product']->id)->get();
     $data['product_sizes']=ProductSize::where('product_id',$data['product']->id)->get();
-    dd($data['product_sub_images']->toArray());
     return view('frontend.single-pages.product-details',$data);
     }
 

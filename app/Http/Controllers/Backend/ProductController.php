@@ -130,6 +130,7 @@ class ProductController extends Controller
         DB::transaction(function () use($request,$id) {
             $validatedData = $request->validate([
                 'size_id' => 'required',
+                'name' => 'required',
  
             ]);
         });

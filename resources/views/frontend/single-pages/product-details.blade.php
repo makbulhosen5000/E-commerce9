@@ -4,7 +4,7 @@
 <!-- Title page -->
 <section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('public/frontend/images/bg-01.jpg');">
     <h2 class="ltext-105 cl0">
-        Product Details info
+        Product Details Info
     </h2>
 </section>	
 <!-- Product Details section start -->
@@ -18,35 +18,17 @@
 							<div class="wrap-slick3-arrows flex-sb-m flex-w"></div>
 
 							<div class="slick3 gallery-lb">
-								<div class="item-slick3" data-thumb="images/product-detail-01.jpg">
+                                @foreach($product_sub_images as $img)
+								<div class="item-slick3" data-thumb="{{asset('public/images/product_sub_images/'.$img->sub_image)}}">
 									<div class="wrap-pic-w pos-relative">
-										<img src="images/product-detail-01.jpg" alt="IMG-PRODUCT">
+										<img src="{{asset('public/images/product_sub_images/'.$img->sub_image)}}" alt="IMG-PRODUCT">
 
-										<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="images/product-detail-01.jpg">
+										<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="{{asset('public/images/product_sub_images/'.$img->sub_image)}}">
 											<i class="fa fa-expand"></i>
 										</a>
 									</div>
 								</div>
-
-								<div class="item-slick3" data-thumb="images/product-detail-02.jpg">
-									<div class="wrap-pic-w pos-relative">
-										<img src="images/product-detail-02.jpg" alt="IMG-PRODUCT">
-
-										<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="images/product-detail-02.jpg">
-											<i class="fa fa-expand"></i>
-										</a>
-									</div>
-								</div>
-
-								<div class="item-slick3" data-thumb="images/product-detail-03.jpg">
-									<div class="wrap-pic-w pos-relative">
-										<img src="images/product-detail-03.jpg" alt="IMG-PRODUCT">
-
-										<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="images/product-detail-03.jpg">
-											<i class="fa fa-expand"></i>
-										</a>
-									</div>
-								</div>
+                                @endforeach
 							</div>
 						</div>
 					</div>
@@ -59,11 +41,11 @@
 						</h4>
 
 						<span class="mtext-106 cl2">
-            {{$product->price}} TK
+                            {{$product->price}} TK
 						</span>
 
 						<p class="stext-102 cl3 p-t-23">
-            {{$product->short_desc}}
+                            {{$product->short_desc}}
 						</p>
 						
 						<!--  -->
@@ -76,11 +58,10 @@
 								<div class="size-204 respon6-next">
 									<div class="rs1-select2 bor8 bg0">
 										<select class="js-select2" name="time">
-											<option>Choose an option</option>
-											<option>Size S</option>
-											<option>Size M</option>
-											<option>Size L</option>
-											<option>Size XL</option>
+											<option value="">Choose an option</option>
+											@foreach($product_sizes as $size)
+											<option value="{{$size->size_id}}">{{$size->size->name}}</option>
+											@endforeach
 										</select>
 										<div class="dropDownSelect2"></div>
 									</div>
@@ -95,11 +76,10 @@
 								<div class="size-204 respon6-next">
 									<div class="rs1-select2 bor8 bg0">
 										<select class="js-select2" name="time">
-											<option>Choose an option</option>
-											<option>Red</option>
-											<option>Blue</option>
-											<option>White</option>
-											<option>Grey</option>
+                                            <option value="">Choose an option</option>
+											@foreach($product_colors as $color)
+											<option value="{{$color->color_id}}">{{$color->color->name}}</option>
+											@endforeach
 										</select>
 										<div class="dropDownSelect2"></div>
 									</div>
@@ -167,35 +147,37 @@
 												Category
 											</span>
 											<span class="stext-102 cl6 size-206">
-                      {{$product->category->name}}
+                                            {{$product->category->name}}
 											</span>
 										</li>
 										<li class="flex-w flex-t p-b-7">
 											<span class="stext-102 cl3 size-205">
-                        Brand
+                                             Brand
 											</span>
 											<span class="stext-102 cl6 size-206">
-                      {{$product->brand->name}}
+                                            {{$product->brand->name}}
 											</span>
 										</li>
-
-										<li class="flex-w flex-t p-b-7">
-											<span class="stext-102 cl3 size-205">
-												Color
-											</span>
-
-											<span class="stext-102 cl6 size-206">
-												Black, Blue, Grey, Green, Red, White
-											</span>
-										</li>
-
 										<li class="flex-w flex-t p-b-7">
 											<span class="stext-102 cl3 size-205">
 												Size
 											</span>
 
 											<span class="stext-102 cl6 size-206">
-												XL, L, M, S
+											@foreach($product_sizes as $sizes)
+											{{$size->size->name}},
+											@endforeach
+											</span>
+										</li>
+										<li class="flex-w flex-t p-b-7">
+											<span class="stext-102 cl3 size-205">
+												Color
+											</span>
+
+											<span class="stext-102 cl6 size-206">
+											@foreach($product_colors as $color)
+											{{$color->color->name}},
+											@endforeach
 											</span>
 										</li>
 									</ul>

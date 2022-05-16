@@ -67,7 +67,7 @@
                     <div class="block2-pic hov-img0">
                         <img src="{{asset('public/images/product_images/'.$product->image)}}" alt="IMG-PRODUCT">
 
-                        <a href="{{route('product.details.info',['slug'=>$product->slug])}}" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">
+                        <a href="{{route('product.details.info',$product->slug)}}" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">
                             Add to Card
                         </a>
                     </div>

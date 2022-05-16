@@ -44,7 +44,7 @@ Route::get('/shopping-cart',[FrontendController::class,'ShopingCart'])->name('sh
 Route::get('/product-list',[FrontendController::class,'ProductList'])->name('product.list');
 Route::get('/product-category/{category_id}',[FrontendController::class,'CategoryWiseProduct'])->name('category.wise.product');
 Route::get('/product-brand/{category_id}',[FrontendController::class,'BrandWiseProduct'])->name('brand.wise.product');
-Route::get('/product-details',[FrontendController::class,'ProductDetails'])->name('product.details.info');
+Route::get('/product-details/{slug}',[FrontendController::class,'ProductDetails'])->name('product.details.info');
 
 //__frontend page routes end from here__//
 
