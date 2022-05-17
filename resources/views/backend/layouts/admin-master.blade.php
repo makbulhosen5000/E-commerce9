@@ -40,7 +40,6 @@
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
   <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
   <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
-
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -276,6 +275,37 @@ function showImage(data, imgId){
         uiLibrary: 'bootstrap4',
         format:'yyyy-mm-dd'
     });
+</script>
+
+{{-- CountDown Timer --}}
+<script src="{{asset('public/backend/build/js/jquery.countdown.min.js')}}"></script>
+<script>
+   ;(function($) {
+    
+    var MERCADO_JS = {
+      init: function(){
+         this.mercado_countdown();
+         
+      }, 
+    mercado_countdown: function() {
+         if($(".mercado-countdown").length > 0){
+                $(".mercado-countdown").each( function(index, el){
+                  var _this = $(this),
+                  _expire = _this.data('expire');
+               _this.countdown(_expire, function(event) {
+                        $(this).html( event.strftime('<span><b>%D</b> Days</span> <span><b>%-H</b> Hrs</span> <span><b>%M</b> Mins</span> <span><b>%S</b> Secs</span>'));
+                    });
+                });
+         }
+      },
+   
+   }
+   
+      window.onload = function () {
+         MERCADO_JS.init();
+      }
+   
+      })(window.Zepto || window.jQuery, window, document);
 </script>
 
 </body>

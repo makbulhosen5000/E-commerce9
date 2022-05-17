@@ -56,10 +56,9 @@ class CountDownTimerController extends Controller
           return view('backend.timer.create-timer',compact('editTimer'));
       } 
        //__category update function is here__//
-      public function update(Request $request, $id)
+      public function update(Request $request,$id)
       {
-        $timer_id ='1';
-        $timer = CountdownTimer::findOrNew($timer_id);
+        $timer = CountdownTimer::find($id);
         $timer->title = $request->title;
         $timer->launch_date = $request->date_time;
         $timer->status = $request->timer_status;

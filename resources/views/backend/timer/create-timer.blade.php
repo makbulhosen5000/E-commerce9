@@ -67,7 +67,6 @@
                         <option value="0">Inactive</option>
                         <option value="1">Active</option>
                      </select>
-                     <font style="color:red">{{($errors->has('timer_status'))?($errors->first('timer_status')):''}} </font>
                   </div>
                 <div class="form-group">
                   <button type="submit" id="button" class="btn btn-success">{{(@$editTimer)?"Update":"Submit"}} </button>

@@ -103,8 +103,6 @@
                   <p>Timer</p>
                 </a>
               </li>
-
-
             </ul>
         </li>
         <li class="nav-item has-treeview {{($prefix=='/sliders')?'menu-open':''}} ">

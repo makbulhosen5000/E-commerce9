@@ -23,6 +23,7 @@ class FrontendController extends Controller
     //all header function is here
     public function index()
     {
+        $data['timers']=CountDownTimer::first();
         $data['logo']=Logo::first();
         $data['sliders']=Slider::all();
         $data['contacts']=Contact::first();

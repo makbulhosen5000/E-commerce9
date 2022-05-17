@@ -54,7 +54,7 @@
                               <tr>
                                   <td>{{$key+1}}</td>
                                   <td>{{$item->title}}</td>
-                                  <td class="wrap-countdown mercado-countdown" >{{ Carbon\Carbon::parse($item->launch_date)->format('Y/m/d h:i:s') }}</td>
+                                  <td class="wrap-countdown mercado-countdown"data-expire="{{ Carbon\Carbon::parse($item->launch_date)->format('Y/m/d h:i:s') }}"></td>
                                   <td>{{$item->status}}</td>
 
 
