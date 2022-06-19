@@ -30,6 +30,7 @@ class FrontendController extends Controller
         $data['categories']=Product::select('category_id')->groupBy('category_id')->get();
         $data['brands']=Product::select('brand_id')->groupBy('brand_id')->get();
         $data['products']=Product::orderBy('id','desc')->paginate(12);
+        //$data['products']=Product::all();
         return view('frontend.layouts.home',$data);
     }
     //__ ProductList function__ //
@@ -38,6 +39,7 @@ class FrontendController extends Controller
     $data['contacts']=Contact::first();
     $data['categories']=Product::select('category_id')->groupBy('category_id')->get();
     $data['brands']=Product::select('brand_id')->groupBy('brand_id')->get();
+    // $data['products']=Product::all();
     $data['products']=Product::orderBy('id','desc')->paginate(12);
     return view('frontend.single-pages.product-list',$data);
     }
@@ -60,16 +62,16 @@ class FrontendController extends Controller
     return view('frontend.single-pages.brand-wise-product',$data);
     }
 
- 
+
     //__ Product Details function__ //
     public function ProductDetails($slug){
     $data['logo']=Logo::first();
     $data['contacts']=Contact::first();
-    $data['product']=Product::where('slug',$slug)->first();
+    $data['productSlug']=Product::where('slug',$slug)->first();
     $data['product_sub_images']=ProductSubImage::where('product_id',$data['product']->id)->get();
     $data['product_colors']=ProductColor::where('product_id',$data['product']->id)->get();
     $data['product_sizes']=ProductSize::where('product_id',$data['product']->id)->get();
-    return view('frontend.single-pages.product-details',$data);
+    return view('frontend.single-pages.product-list',$data);
     }
 
     //__ Shoping Cart function__ //
@@ -132,5 +134,5 @@ class FrontendController extends Controller
 
     }
 
-   
+
 }

@@ -1,4 +1,4 @@
-  
+
 {{-- Product serction start here--}}
  <section class="bg0 p-t-23 p-b-140">
     <div class="container">
@@ -62,12 +62,13 @@
         <div class="row isotope-grid">
             @foreach ($products as $product)
             <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
+                {{-- {{dd($product->slug)}} --}}
                 <!-- Block2 -->
                 <div class="block2">
                     <div class="block2-pic hov-img0">
                         <img src="{{asset('public/images/product_images/'.$product->image)}}" alt="IMG-PRODUCT">
 
-                        <a href="{{route('product.details.info',$product->slug)}}" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">
+                        <a href="{{route('product.details.info',"dfdsfs")}}" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">
                             Add to Card
                         </a>
                     </div>

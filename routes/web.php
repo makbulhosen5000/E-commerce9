@@ -44,7 +44,7 @@ Route::get('/shopping-cart',[FrontendController::class,'ShopingCart'])->name('sh
 Route::get('/product-list',[FrontendController::class,'ProductList'])->name('product.list');
 Route::get('/product-category/{category_id}',[FrontendController::class,'CategoryWiseProduct'])->name('category.wise.product');
 Route::get('/product-brand/{category_id}',[FrontendController::class,'BrandWiseProduct'])->name('brand.wise.product');
-Route::get('/product-details',[FrontendController::class,'ProductDetails'])->name('product.details.info');
+Route::get('/product-details-info/{slug}',[FrontendController::class,'ProductDetails'])->name('product.details.info');
 
 //__frontend page routes end from here__//
 
@@ -164,11 +164,11 @@ Route::get('/view',[ProductController::class,'index'])->name('products.view');
 Route::get('/create',[ProductController::class,'create'])->name('products.create');
 Route::post('/store',[ProductController::class,'store'])->name('products.store');
 Route::get('/edit/{id}',[ProductController::class,'edit'])->name('products.edit');
-Route::get('/details/{id}',[ProductController::class,'details'])->name('products.details');
+Route::get('/details/{slug}',[ProductController::class,'details'])->name('products.details.info');
 Route::post('/updated/{id}',[ProductController::class,'update'])->name('products.update');
 Route::get('/destroy/{id}',[ProductController::class,'destroy'])->name('products.destroy');
 });
-    
+
 
 
 //User Email route
